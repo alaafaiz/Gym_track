@@ -1,0 +1,3631 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#DC2626" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>مدربي الذكي | تحدي الـ 12 أسبوعاً</title>
+
+  <!-- Google Font: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================================
+       1. DESIGN SYSTEM — NIKE TRAINING CLUB / APPLE FITNESS+ INSPIRED
+          Pure White + Crimson Red (#DC2626 / #EF4444) + Charcoal (#111827)
+       ========================================================================= */
+    :root {
+      --bg-canvas: #F7F8FA;
+      --bg-card: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --red-600: #DC2626;
+      --red-500: #EF4444;
+      --red-700: #B91C1C;
+      --red-50: #FEF2F2;
+      --red-100: #FEE2E2;
+      --red-200: #FECACA;
+
+      --ink-900: #111827;
+      --ink-700: #374151;
+      --ink-500: #6B7280;
+      --ink-400: #9CA3AF;
+
+      --line-light: #E5E7EB;
+      --line-soft: #F1F5F9;
+
+      --green-600: #16A34A;
+      --green-50: #F0FDF4;
+      --green-200: #BBF7D0;
+      --amber-600: #D97706;
+      --amber-50: #FFFBEB;
+      --blue-600: #0284C7;
+      --blue-50: #F0F9FF;
+
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+
+      --shadow-xs: 0 1px 3px rgba(17, 24, 39, 0.04);
+      --shadow-sm: 0 4px 16px rgba(17, 24, 39, 0.05);
+      --shadow-md: 0 10px 30px rgba(17, 24, 39, 0.08);
+      --shadow-red: 0 10px 24px rgba(220, 38, 38, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* CRITICAL SCROLLING FIX: Natural document flow, smooth touch scroll */
+    html, body {
+      height: auto;
+      min-height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-canvas);
+      color: var(--ink-900);
+      line-height: 1.55;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      min-height: 100%;
+      background: var(--bg-canvas);
+      padding-bottom: 148px; /* Generous clearance for floating nav + rest timer */
+      position: relative;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: transform 0.14s ease, background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    button:active {
+      transform: scale(0.96);
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* =========================================================================
+       2. PREMIUM ATHLETIC HERO HEADER
+       ========================================================================= */
+    .hero-header {
+      background: linear-gradient(160deg, #FFFFFF 0%, #FFFFFF 55%, #FEF2F2 100%);
+      border-bottom: 1px solid var(--line-light);
+      padding: 16px 16px 18px;
+      border-radius: 0 0 28px 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--red-500), var(--red-600));
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-red);
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--ink-900);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--red-600);
+      margin-top: 2px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .streak-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 11px;
+      border-radius: var(--radius-pill);
+      background: var(--red-50);
+      border: 1.5px solid var(--red-200);
+      color: var(--red-600);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    /* Circular SVG Progress Ring */
+    .ring-btn {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #FFFFFF;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .ring-btn svg {
+      transform: rotate(-90deg);
+      width: 48px;
+      height: 48px;
+    }
+
+    .ring-text {
+      position: absolute;
+      font-size: 0.68rem;
+      font-weight: 900;
+      color: var(--ink-900);
+    }
+
+    /* Athlete Profile Strip */
+    .athlete-strip {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      margin-top: 13px;
+      padding-bottom: 2px;
+    }
+
+    .athlete-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--line-light);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--ink-700);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Week Selector & Smart Phase Banner */
+    .week-banner {
+      margin-top: 13px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--line-light);
+      border-radius: var(--radius-md);
+      padding: 11px 13px;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .week-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .week-stepper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .step-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: var(--red-50);
+      color: var(--red-600);
+      border: 1px solid var(--red-200);
+      font-size: 1rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .week-dropdown {
+      background: var(--bg-canvas);
+      border: 1px solid var(--line-light);
+      border-radius: 10px;
+      padding: 4px 10px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--ink-900);
+      outline: none;
+    }
+
+    .phase-heading {
+      margin-top: 7px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--ink-900);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .phase-tip {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: var(--red-50);
+      border-right: 3px solid var(--red-600);
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--red-700);
+    }
+
+    /* =========================================================================
+       3. SECTIONS, CARDS, BADGES & BUTTONS
+       ========================================================================= */
+    .tab-section {
+      display: none;
+      padding: 16px 15px 10px;
+      animation: fadeSlide 0.22s ease;
+    }
+
+    .tab-section.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-accent {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-accent::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--red-500), var(--red-600));
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--ink-900);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .card-sub {
+      font-size: 0.76rem;
+      color: var(--ink-500);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+
+    .badge-red { background: var(--red-50); color: var(--red-600); border: 1px solid var(--red-200); }
+    .badge-solid-red { background: var(--red-600); color: #FFFFFF; }
+    .badge-dark { background: var(--ink-900); color: #FFFFFF; }
+    .badge-green { background: var(--green-50); color: var(--green-600); border: 1px solid var(--green-200); }
+    .badge-amber { background: var(--amber-50); color: var(--amber-600); border: 1px solid #FDE68A; }
+    .badge-gray { background: var(--bg-subtle); color: var(--ink-700); border: 1px solid var(--line-light); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--red-500), var(--red-600));
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.86rem;
+      padding: 12px 18px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: var(--shadow-red);
+    }
+
+    .btn-outline {
+      background: #FFFFFF;
+      color: var(--red-600);
+      border: 1.5px solid var(--red-600);
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 10px 14px;
+      border-radius: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .btn-soft {
+      background: var(--bg-subtle);
+      color: var(--ink-900);
+      border: 1px solid var(--line-light);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 9px 13px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 9px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--red-500), var(--red-700));
+      border-radius: var(--radius-pill);
+      transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* =========================================================================
+       4. TAB 1: WORKOUTS & 7-DAY SELECTOR
+       ========================================================================= */
+    .days-scroller {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 2px 10px;
+      margin-bottom: 10px;
+    }
+
+    .day-pill {
+      min-width: 76px;
+      padding: 10px 10px;
+      border-radius: 16px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--line-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      position: relative;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .day-pill-name {
+      font-size: 0.8rem;
+      font-weight: 900;
+      color: var(--ink-900);
+    }
+
+    .day-pill-sub {
+      font-size: 0.63rem;
+      font-weight: 700;
+      color: var(--ink-500);
+    }
+
+    .day-pill.active {
+      background: linear-gradient(135deg, var(--red-500), var(--red-600));
+      border-color: var(--red-600);
+      box-shadow: var(--shadow-red);
+    }
+
+    .day-pill.active .day-pill-name,
+    .day-pill.active .day-pill-sub {
+      color: #FFFFFF;
+    }
+
+    .day-check-badge {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green-600);
+      color: #FFFFFF;
+      font-size: 0.66rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #FFFFFF;
+    }
+
+    /* Exercise Card */
+    .ex-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--line-light);
+      border-radius: var(--radius-lg);
+      padding: 15px;
+      margin-bottom: 13px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .ex-card.all-done {
+      border-color: var(--red-500);
+      background: linear-gradient(180deg, #FEF2F2 0%, #FFFFFF 36%);
+    }
+
+    .ex-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .ex-title-ar {
+      font-size: 0.98rem;
+      font-weight: 900;
+      color: var(--ink-900);
+      margin-top: 5px;
+      line-height: 1.3;
+    }
+
+    .ex-title-en {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ink-500);
+      direction: ltr;
+      text-align: right;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+    }
+
+    .btn-anatomy {
+      background: var(--red-50);
+      border: 1.5px solid var(--red-200);
+      color: var(--red-600);
+      padding: 8px 12px;
+      border-radius: 13px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .ex-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 9px 0 11px;
+    }
+
+    .sets-header, .set-row {
+      display: grid;
+      grid-template-columns: 48px 1fr 1fr 44px;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .sets-header {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--ink-500);
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .set-row {
+      background: var(--bg-canvas);
+      border: 1px solid var(--line-light);
+      border-radius: 13px;
+      padding: 6px;
+      margin-bottom: 6px;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .set-row.done {
+      background: var(--red-50);
+      border-color: var(--red-200);
+    }
+
+    .set-num {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--ink-700);
+    }
+
+    .set-row.done .set-num {
+      color: var(--red-600);
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .set-input {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1.5px solid var(--line-light);
+      border-radius: 10px;
+      padding: 7px 6px 7px 26px;
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--ink-900);
+      outline: none;
+    }
+
+    .set-input:focus {
+      border-color: var(--red-600);
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+    }
+
+    .input-unit {
+      position: absolute;
+      left: 7px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--ink-400);
+      pointer-events: none;
+    }
+
+    .check-btn {
+      width: 38px;
+      height: 36px;
+      border-radius: 11px;
+      background: #FFFFFF;
+      border: 1.5px solid #D1D5DB;
+      color: var(--ink-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .check-btn.done {
+      background: var(--red-600);
+      border-color: var(--red-600);
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+    }
+
+    /* Inline Plank Timer */
+    .plank-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--ink-900);
+      color: #FFFFFF;
+      padding: 10px 13px;
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
+
+    .plank-clock {
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #FCA5A5;
+    }
+
+    .timer-hero {
+      background: linear-gradient(145deg, #FFFFFF, var(--red-50));
+      border: 1.5px solid var(--red-200);
+      border-radius: var(--radius-lg);
+      padding: 20px 16px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .big-digits {
+      font-size: 2.9rem;
+      font-weight: 900;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      color: var(--red-600);
+      letter-spacing: 1px;
+      margin: 8px 0 12px;
+    }
+
+    /* =========================================================================
+       5. TAB 2: NUTRITION & WATER
+       ========================================================================= */
+    .macro-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 13px 0;
+    }
+
+    .macro-tile {
+      background: var(--bg-canvas);
+      border: 1px solid var(--line-light);
+      border-radius: 15px;
+      padding: 10px 4px;
+      text-align: center;
+    }
+
+    .macro-tile.accent {
+      background: var(--red-50);
+      border-color: var(--red-200);
+    }
+
+    .macro-num {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--red-600);
+    }
+
+    .macro-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--ink-500);
+      margin-top: 2px;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 12px;
+      border-radius: 15px;
+      border: 1.5px solid var(--line-light);
+      background: #FFFFFF;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .check-row.done {
+      background: var(--red-50);
+      border-color: var(--red-200);
+    }
+
+    .tick-box {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      border: 2px solid #D1D5DB;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: transparent;
+      font-size: 0.82rem;
+      font-weight: 900;
+      margin-top: 2px;
+    }
+
+    .done .tick-box {
+      background: var(--red-600);
+      border-color: var(--red-600);
+      color: #FFFFFF;
+    }
+
+    .water-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .cup-tile {
+      padding: 8px 2px;
+      border-radius: 12px;
+      background: var(--bg-canvas);
+      border: 1.5px solid var(--line-light);
+      text-align: center;
+      font-size: 0.92rem;
+      opacity: 0.4;
+      transition: all 0.18s ease;
+    }
+
+    .cup-tile.filled {
+      background: var(--blue-50);
+      border-color: #7DD3FC;
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    /* =========================================================================
+       6. TAB 3: PROGRESS, SVG CHART & ROADMAP
+       ========================================================================= */
+    .form-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-bottom: 9px;
+    }
+
+    .lbl {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--ink-700);
+      margin-bottom: 4px;
+    }
+
+    .inp {
+      width: 100%;
+      background: var(--bg-canvas);
+      border: 1.5px solid var(--line-light);
+      border-radius: 12px;
+      padding: 9px 11px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--ink-900);
+      outline: none;
+    }
+
+    .inp:focus {
+      border-color: var(--red-600);
+      background: #FFFFFF;
+    }
+
+    .chart-shell {
+      background: #FFFFFF;
+      border: 1px solid var(--line-light);
+      border-radius: 16px;
+      padding: 12px 8px 6px;
+      margin-top: 12px;
+    }
+
+    .roadmap-step {
+      display: flex;
+      gap: 12px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .roadmap-step:last-child { padding-bottom: 0; }
+
+    .roadmap-step::before {
+      content: "";
+      position: absolute;
+      right: 13px;
+      top: 28px;
+      bottom: 0;
+      width: 2px;
+      background: var(--line-light);
+    }
+
+    .roadmap-step:last-child::before { display: none; }
+
+    .rm-node {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-subtle);
+      border: 2px solid #D1D5DB;
+      color: var(--ink-500);
+      font-size: 0.72rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .roadmap-step.done .rm-node {
+      background: var(--green-600);
+      border-color: var(--green-600);
+      color: #FFFFFF;
+    }
+
+    .roadmap-step.active .rm-node {
+      background: var(--red-600);
+      border-color: var(--red-600);
+      color: #FFFFFF;
+      box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.18);
+    }
+
+    .rm-card {
+      flex: 1;
+      background: var(--bg-canvas);
+      border: 1px solid var(--line-light);
+      border-radius: 14px;
+      padding: 9px 12px;
+    }
+
+    .roadmap-step.active .rm-card {
+      background: var(--red-50);
+      border-color: var(--red-200);
+    }
+
+    /* =========================================================================
+       7. TAB 4: GUIDE, REMINDERS & BACKUP
+       ========================================================================= */
+    .rule-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line-soft);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink-900);
+    }
+
+    .rule-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .rule-idx {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      background: var(--red-50);
+      color: var(--red-600);
+      font-weight: 900;
+      font-size: 0.76rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .days-grid-7 {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      margin-top: 8px;
+    }
+
+    .day-chip {
+      padding: 8px 2px;
+      border-radius: 10px;
+      background: var(--bg-canvas);
+      border: 1.5px solid var(--line-light);
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--ink-700);
+      text-align: center;
+    }
+
+    .day-chip.selected {
+      background: var(--red-600);
+      border-color: var(--red-600);
+      color: #FFFFFF;
+    }
+
+    /* =========================================================================
+       8. COLLAPSIBLE FLOATING REST TIMER & GLASSMORPHIC 4-TAB BOTTOM NAV
+       ========================================================================= */
+    .rest-pill-wrap {
+      position: fixed;
+      bottom: 84px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 28px);
+      max-width: 492px;
+      z-index: 35;
+      pointer-events: none;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .rest-bar {
+      pointer-events: auto;
+      width: 100%;
+      background: rgba(17, 24, 39, 0.95);
+      backdrop-filter: blur(10px);
+      color: #FFFFFF;
+      border-radius: 18px;
+      padding: 8px 12px;
+      box-shadow: 0 10px 28px rgba(17, 24, 39, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.22s ease;
+    }
+
+    .rest-bar.running {
+      border-color: var(--red-500);
+      box-shadow: 0 10px 28px rgba(220, 38, 38, 0.3);
+    }
+
+    .rest-bar.collapsed {
+      width: auto;
+      padding: 7px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .rest-bar.collapsed .rest-controls-area,
+    .rest-bar.collapsed .rest-label {
+      display: none !important;
+    }
+
+    .rest-digits {
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 1.12rem;
+      font-weight: 900;
+    }
+
+    .r-chip {
+      padding: 5px 9px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.13);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .r-chip.red { background: var(--red-600); }
+
+    /* Floating Glassmorphic Bottom Navigation (4 Tabs) */
+    .floating-nav-wrap {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 24px);
+      max-width: 496px;
+      z-index: 40;
+    }
+
+    .bottom-nav {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(229, 231, 235, 0.95);
+      border-radius: 22px;
+      padding: 6px;
+      box-shadow: 0 12px 32px rgba(17, 24, 39, 0.12);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 7px 4px;
+      border-radius: 16px;
+      color: var(--ink-500);
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+
+    .nav-item.active {
+      background: var(--red-600);
+      color: #FFFFFF;
+      box-shadow: 0 6px 14px rgba(220, 38, 38, 0.28);
+    }
+
+    /* =========================================================================
+       9. ANATOMICAL SIMULATION MODAL & CELEBRATION MODAL
+       ========================================================================= */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 70;
+      background: rgba(17, 24, 39, 0.62);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    @media (min-width: 540px) {
+      .modal-overlay { align-items: center; padding: 16px; }
+    }
+
+    .modal-sheet {
+      width: 100%;
+      max-width: 510px;
+      max-height: 90vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      background: #FFFFFF;
+      border-radius: 28px 28px 0 0;
+      padding: 18px 16px 24px;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+      animation: slideUpModal 0.24s ease;
+    }
+
+    @media (min-width: 540px) {
+      .modal-sheet { border-radius: 24px; }
+    }
+
+    @keyframes slideUpModal {
+      from { transform: translateY(28px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .canvas-stage {
+      background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 65%, #FEF2F2 100%);
+      border: 1.5px solid var(--red-200);
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 12px 0;
+      position: relative;
+    }
+
+    #anatomy-canvas {
+      display: block;
+      width: 100%;
+      height: 255px;
+    }
+
+    .phase-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      padding: 6px 10px;
+      background: #F8FAFC;
+      border-top: 1px solid var(--line-light);
+    }
+
+    .phase-chip {
+      text-align: center;
+      padding: 4px 6px;
+      border-radius: 8px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--ink-500);
+      background: transparent;
+      transition: all 0.15s ease;
+    }
+
+    .phase-chip.on {
+      background: var(--red-600);
+      color: #FFFFFF;
+    }
+
+    .sim-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 9px 11px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--line-light);
+      flex-wrap: wrap;
+    }
+
+    .speed-pills {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-subtle);
+      padding: 3px;
+      border-radius: 10px;
+    }
+
+    .spd-btn {
+      padding: 4px 9px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--ink-700);
+    }
+
+    .spd-btn.active {
+      background: var(--red-600);
+      color: #FFFFFF;
+    }
+
+    /* Grip & Posture Details Box */
+    .grip-box {
+      background: linear-gradient(135deg, #FEF2F2, #FFFFFF);
+      border: 1.5px solid var(--red-200);
+      border-radius: 16px;
+      padding: 12px 13px;
+      margin-bottom: 11px;
+    }
+
+    .grip-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .grip-item {
+      display: flex;
+      gap: 8px;
+      font-size: 0.78rem;
+      align-items: flex-start;
+    }
+
+    .grip-tag {
+      background: var(--red-600);
+      color: #FFFFFF;
+      font-size: 0.66rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .yt-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--ink-900);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 12px 14px;
+      border-radius: 14px;
+      margin-bottom: 11px;
+    }
+
+    .info-panel {
+      background: var(--bg-canvas);
+      border: 1px solid var(--line-light);
+      border-radius: 15px;
+      padding: 11px 13px;
+      margin-bottom: 10px;
+      font-size: 0.79rem;
+    }
+
+    .info-panel ul { padding-right: 18px; margin-top: 4px; }
+    .info-panel li { margin-bottom: 4px; color: var(--ink-700); font-weight: 600; }
+
+    .inline-confirm {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: var(--red-50);
+      border: 1px solid var(--red-200);
+      padding: 10px 12px;
+      border-radius: 13px;
+      margin-top: 9px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--red-700);
+    }
+
+    .inline-confirm.show { display: flex; }
+
+    .toast {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      z-index: 95;
+      background: var(--ink-900);
+      color: #FFFFFF;
+      border-right: 4px solid var(--red-500);
+      padding: 10px 16px;
+      border-radius: 14px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      max-width: 92vw;
+      text-align: center;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 90;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="app-container">
+    <!-- =======================================================================
+         PREMIUM ATHLETIC HEADER
+         ======================================================================= -->
+    <header class="hero-header">
+      <div class="hero-top">
+        <div class="brand-group">
+          <div class="brand-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.5 6.5h11M6.5 17.5h11M3 10v4M21 10v4M6 7v10M18 7v10M6 12h12"/>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-name">مدربي الذكي</div>
+            <div class="brand-tagline">تحدي الـ 12 أسبوعاً • تغيير الجسم وبناء القوة</div>
+          </div>
+        </div>
+
+        <div class="hero-metrics">
+          <button class="streak-pill" onclick="switchTab('progress')" title="سلسلة الالتزام">
+            <span>🔥</span><span id="hdr-streak">0</span>
+          </button>
+          <button class="ring-btn" onclick="switchTab('progress')" title="نسبة إنجاز الأسبوع">
+            <svg viewBox="0 0 48 48">
+              <circle cx="24" cy="24" r="19" fill="none" stroke="#FEE2E2" stroke-width="4.5"/>
+              <circle id="hdr-ring-circle" cx="24" cy="24" r="19" fill="none" stroke="#DC2626" stroke-width="4.5"
+                stroke-linecap="round" stroke-dasharray="119.38" stroke-dashoffset="119.38" style="transition:stroke-dashoffset 0.4s ease;"/>
+            </svg>
+            <span id="hdr-ring-text" class="ring-text">0/7</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Athlete Profile Strip -->
+      <div class="athlete-strip no-scrollbar">
+        <span class="athlete-chip">⚖️ 75 كجم</span>
+        <span class="athlete-chip">📏 170 سم</span>
+        <span class="athlete-chip">🎯 مبتدئ</span>
+        <span class="athlete-chip">🌅 تمرين صباحي</span>
+      </div>
+
+      <!-- 12-Week Stepper & Active Phase Tip -->
+      <div class="week-banner">
+        <div class="week-row">
+          <div class="week-stepper">
+            <button class="step-btn" onclick="changeWeek(-1)" aria-label="الأسبوع السابق">‹</button>
+            <select id="week-select" class="week-dropdown" onchange="setWeek(parseInt(this.value))"></select>
+            <button class="step-btn" onclick="changeWeek(1)" aria-label="الأسبوع التالي">›</button>
+          </div>
+          <span id="hdr-phase-badge" class="badge badge-red">الأسبوع 1–2</span>
+        </div>
+        <div id="hdr-phase-title" class="phase-heading">📌 تعلم التمارين والتعود على الجيم</div>
+        <div id="hdr-phase-tip" class="phase-tip"></div>
+      </div>
+    </header>
+
+    <!-- =======================================================================
+         TAB 1: التمارين (WORKOUTS & WEEKLY SCHEDULE)
+         ======================================================================= -->
+    <main id="tab-workout" class="tab-section active">
+      <div id="days-scroller" class="days-scroller no-scrollbar"></div>
+
+      <div class="card card-accent">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+          <div>
+            <span id="day-badge" class="badge badge-red">حديد A + كارديو</span>
+            <h2 id="day-title" style="font-size:1.05rem;font-weight:900;margin-top:6px;">السبت — الصدر والظهر والأرجل</h2>
+            <p id="day-duration" class="card-sub">المدة: 75 دقيقة</p>
+          </div>
+          <span id="day-pct-badge" class="badge badge-dark">0%</span>
+        </div>
+        <div class="progress-track" style="margin-top:11px;">
+          <div id="day-pct-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div id="day-body"></div>
+
+      <button class="btn-primary" style="width:100%;padding:14px;font-size:0.94rem;margin-top:4px;" onclick="finishCurrentDay()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><path d="M20 6L9 17l-5-5"/></svg>
+        إنهاء وحفظ إنجاز اليوم
+      </button>
+    </main>
+
+    <!-- =======================================================================
+         TAB 2: التغذية والماء (NUTRITION & WATER)
+         ======================================================================= -->
+    <section id="tab-nutrition" class="tab-section">
+      <div class="card card-accent">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <h2 class="card-title">الهدف الغذائي اليومي 🍽️</h2>
+            <p class="card-sub">خسارة دهون البطن + بناء العضلات</p>
+          </div>
+          <span class="badge badge-solid-red">2,100 سعرة</span>
+        </div>
+
+        <div class="macro-grid">
+          <div class="macro-tile accent">
+            <div class="macro-num">2,100</div>
+            <div class="macro-label">سعرة</div>
+          </div>
+          <div class="macro-tile">
+            <div class="macro-num">140 جم</div>
+            <div class="macro-label">بروتين</div>
+          </div>
+          <div class="macro-tile">
+            <div class="macro-num">230 جم</div>
+            <div class="macro-label">كارب</div>
+          </div>
+          <div class="macro-tile">
+            <div class="macro-num">65 جم</div>
+            <div class="macro-label">دهون</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;">
+          <span class="badge badge-gray">🐟 أسماك</span>
+          <span class="badge badge-gray">🥩 لحوم</span>
+          <span class="badge badge-gray">🍚 أرز</span>
+          <span class="badge badge-gray">🥔 بطاطس</span>
+          <span class="badge badge-gray">🍌 فواكه</span>
+          <span class="badge badge-gray">🍞 خبز</span>
+          <span class="badge badge-gray">🌴 تمر</span>
+          <span class="badge badge-gray">🥜 مكسرات</span>
+        </div>
+        <div style="margin-top:9px;">
+          <span class="badge badge-red">🚫 بدون بيض • بدون خضروات • بدون حليب</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <div>
+            <h3 class="card-title">جدول الـ 5 وجبات اليومية</h3>
+            <p id="meals-sub" class="card-sub">أنجزت 0 من 5 وجبات اليوم</p>
+          </div>
+          <button class="btn-soft" style="padding:6px 10px;font-size:0.72rem;" onclick="resetMeals()">تصفير</button>
+        </div>
+        <div class="progress-track" style="margin-bottom:12px;">
+          <div id="meals-bar" class="progress-fill"></div>
+        </div>
+        <div id="meals-container"></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <h3 class="card-title">متتبع شرب الماء اليومي 💧</h3>
+            <p id="water-sub" class="card-sub">0.00 / 3.00 لتر (0 من 12 كوب)</p>
+          </div>
+          <div style="display:flex;gap:6px;">
+            <button class="step-btn" onclick="changeWater(-1)" aria-label="إنقاص كوب">−</button>
+            <button class="step-btn" onclick="changeWater(1)" aria-label="إضافة كوب">+</button>
+          </div>
+        </div>
+        <div class="progress-track" style="margin-top:10px;">
+          <div id="water-bar" class="progress-fill" style="background:linear-gradient(90deg,#38BDF8,#0284C7);"></div>
+        </div>
+        <div id="water-grid" class="water-grid"></div>
+      </div>
+
+      <div class="card" style="background:var(--amber-50);border-color:#FDE68A;">
+        <h4 style="font-size:0.84rem;font-weight:900;color:#92400E;margin-bottom:5px;">⚠️ تنبيه غذائي وحسابي هام</h4>
+        <p style="font-size:0.76rem;color:#78350F;font-weight:600;line-height:1.65;">
+          • الأوزان للحوم والأسماك والأرز والبطاطس تُحسب <strong>بعد الطهي</strong>.<br />
+          • هذه قائمة وجبات مبدئية وليست محسوبة بدقة مطلقة على 2,100 سعرة و140 جم بروتين؛ راجع الملصقات الغذائية للكميات، كما أن استبعاد الخضروات والحليب يتطلب تخطيطاً لتعويض الألياف والكالسيوم وبعض المغذيات الدقيقة.
+        </p>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         TAB 3: التقدم والالتزام (PROGRESS, CHART & ROADMAP)
+         ======================================================================= -->
+    <section id="tab-progress" class="tab-section">
+      <div class="card card-accent">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <div>
+            <h2 class="card-title">قائمة الالتزام الأسبوعية ✅</h2>
+            <p class="card-sub">الأسبوع <span id="prog-week-num">1</span> من 12</p>
+          </div>
+          <span id="prog-score" class="badge badge-solid-red" style="font-size:0.84rem;">0/7</span>
+        </div>
+        <div class="progress-track" style="margin-bottom:12px;">
+          <div id="prog-bar" class="progress-fill"></div>
+        </div>
+        <div id="adherence-container"></div>
+
+        <button class="btn-outline" style="width:100%;margin-top:10px;" onclick="showNewWeekConfirm(true)">
+          🔄 بدء أسبوع جديد (أرشفة الحالي والانتقال للتالي)
+        </button>
+        <div id="new-week-box" class="inline-confirm">
+          <span>هل تريد أرشفة هذا الأسبوع والانتقال للأسبوع التالي؟</span>
+          <div style="display:flex;gap:5px;flex-shrink:0;">
+            <button class="r-chip red" onclick="confirmNewWeek()">نعم</button>
+            <button class="r-chip" style="background:#374151;" onclick="showNewWeekConfirm(false)">إلغاء</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:10px;">
+          <div>
+            <h3 class="card-title">الوزن ومحيط البطن ⚖️</h3>
+            <p class="card-sub">الوزن 3 مرات/أسبوع • البطن مرة/أسبوع</p>
+          </div>
+          <span class="badge badge-green">الهدف: 200–400 جم/أسبوع</span>
+        </div>
+
+        <form onsubmit="saveMeasurement(event)">
+          <div class="form-2col">
+            <div>
+              <label class="lbl" for="inp-weight">الوزن (كجم) *</label>
+              <input id="inp-weight" class="inp" type="number" step="0.1" min="40" max="200" required placeholder="74.6" />
+            </div>
+            <div>
+              <label class="lbl" for="inp-waist">محيط البطن (سم)</label>
+              <input id="inp-waist" class="inp" type="number" step="0.5" min="50" max="160" placeholder="88" />
+            </div>
+          </div>
+          <div style="margin-bottom:10px;">
+            <label class="lbl" for="inp-note">ملاحظة</label>
+            <input id="inp-note" class="inp" type="text" placeholder="مثال: صباح الجمعة قبل الإفطار" />
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;padding:11px;">تسجيل القياس</button>
+        </form>
+
+        <div class="chart-shell">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0 6px 6px;">
+            <span style="font-size:0.74rem;font-weight:800;color:var(--ink-700);">مسار تطور الوزن (كجم)</span>
+            <span id="delta-badge" class="badge badge-gray">البداية: 75.0 كجم</span>
+          </div>
+          <svg id="weight-svg" viewBox="0 0 360 155" style="width:100%;height:auto;display:block;"></svg>
+        </div>
+
+        <div id="meas-list" style="margin-top:10px;"></div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title" style="margin-bottom:9px;">متابعات كل أسبوعين 📸</h3>
+        <div id="bw-photos" class="check-row" onclick="toggleBiweekly('photos')">
+          <div class="tick-box">✓</div>
+          <div>
+            <div style="font-size:0.84rem;font-weight:800;">صور الجسم (أمام / جانب / خلف)</div>
+            <div id="bw-photos-dt" style="font-size:0.72rem;color:var(--ink-500);">لم يتم التسجيل بعد</div>
+          </div>
+        </div>
+        <div id="bw-fitness" class="check-row" onclick="toggleBiweekly('fitness')">
+          <div class="tick-box">✓</div>
+          <div>
+            <div style="font-size:0.84rem;font-weight:800;">تقييم مستوى اللياقة والتحمل</div>
+            <div id="bw-fitness-dt" style="font-size:0.72rem;color:var(--ink-500);">لم يتم التسجيل بعد</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title" style="margin-bottom:12px;">خارطة طريق الـ 12 أسبوعاً 🗺️</h3>
+        <div id="roadmap-list"></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <h3 class="card-title">سجل الحصص المنجزة 📋</h3>
+          <span id="hist-count" class="badge badge-gray">0 حصة</span>
+        </div>
+        <div id="hist-list"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         TAB 4: الدليل والتذكير (GUIDE, REMINDERS & BACKUP)
+         ======================================================================= -->
+    <section id="tab-guide" class="tab-section">
+      <!-- Commitment Quote -->
+      <div class="card" style="background:linear-gradient(135deg,#FEF2F2,#FFFFFF);border:1.5px solid var(--red-600);text-align:center;">
+        <div style="font-size:1.6rem;margin-bottom:4px;">💪🔥</div>
+        <p style="font-size:0.88rem;font-weight:900;color:var(--ink-900);line-height:1.7;">
+          "لا تجعل هدفك أن ترى جسماً مختلفاً بعد أسبوعين؛ اجعل هدفك أن تصبح شخصاً ملتزماً بالتدريب والتغذية. عندها سيأتي التغيير الجسدي نتيجة طبيعية لهذا الالتزام."
+        </p>
+      </div>
+
+      <!-- Reminder & Calendar -->
+      <div class="card card-accent">
+        <h2 class="card-title" style="margin-bottom:4px;">التذكير الصباحي وتقويم الهاتف ⏰</h2>
+        <p class="card-sub" style="margin-bottom:12px;">اضبط موعد تمرينك الصباحي وأيام التذكير</p>
+
+        <div style="margin-bottom:11px;">
+          <label class="lbl" for="rem-time">وقت التمرين:</label>
+          <input id="rem-time" type="time" class="inp" value="06:00" style="text-align:center;font-size:1.18rem;color:var(--red-600);" onchange="saveReminder()" />
+        </div>
+
+        <div style="margin-bottom:13px;">
+          <span class="lbl">أيام التذكير الأسبوعية:</span>
+          <div id="rem-days" class="days-grid-7"></div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--bg-canvas);border-radius:12px;margin-bottom:11px;">
+          <span style="font-size:0.78rem;font-weight:800;">إشعارات المتصفح:</span>
+          <span id="notif-status" class="badge badge-amber">غير مفعّلة</span>
+        </div>
+
+        <div class="form-2col">
+          <button class="btn-primary" style="padding:10px;font-size:0.8rem;" onclick="enableNotifications()">🔔 تفعيل الإشعارات</button>
+          <button class="btn-soft" onclick="testNotification()">تجربة التنبيه</button>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;">
+          <button class="btn-outline" onclick="downloadICS()">⬇️ تصدير لتقويم الهاتف (.ics) مع منبه</button>
+          <button class="btn-soft" onclick="openGoogleCal()">📅 إضافة لتقويم جوجل (Google Calendar)</button>
+        </div>
+      </div>
+
+      <!-- 5 Workout Rules -->
+      <div class="card">
+        <h3 class="card-title" style="margin-bottom:6px;">قواعد التمرين الـ 5 الأساسية 🏋️‍♂️</h3>
+        <div class="rule-row"><span class="rule-idx">1</span><span>أول أسبوعين: نفّذ مجموعتين في معظم التمارين إذا كان حجم التدريب مرهقاً، وتعلم الحركة الصحيحة.</span></div>
+        <div class="rule-row"><span class="rule-idx">2</span><span>الراحة بين المجموعات: 90–120 ثانية، وفي التمارين الثقيلة حتى 3 دقائق (180 ثانية).</span></div>
+        <div class="rule-row"><span class="rule-idx">3</span><span>لا ترفع وزناً لا تستطيع التحكم فيه بشكل كامل.</span></div>
+        <div class="rule-row"><span class="rule-idx">4</span><span>عندما تكمل جميع التكرارات بتكنيك جيد، زد الوزن تدريجياً.</span></div>
+        <div class="rule-row"><span class="rule-idx">5</span><span>لا تصل للفشل العضلي التام في التمارين الأساسية.</span></div>
+      </div>
+
+      <!-- 7 Golden Tips -->
+      <div class="card">
+        <h3 class="card-title" style="margin-bottom:6px;">النصائح الـ 7 الذهبية للاستمرار 🏆</h3>
+        <div class="rule-row"><span class="rule-idx">1</span><span>لا تذهب إلى الجيم دون معرفة تمارين اليوم مسبقاً.</span></div>
+        <div class="rule-row"><span class="rule-idx">2</span><span>لا تقارن أوزانك بأوزان الآخرين.</span></div>
+        <div class="rule-row"><span class="rule-idx">3</span><span>لا تستخدم حوارق الدهون أو المكملات عشوائياً.</span></div>
+        <div class="rule-row"><span class="rule-idx">4</span><span>لا تعوّض وجبة فائتة بتجويع نفسك.</span></div>
+        <div class="rule-row"><span class="rule-idx">5</span><span>لا تتوقف بسبب تفويت يوم؛ ارجع مباشرة إلى جدولك.</span></div>
+        <div class="rule-row"><span class="rule-idx">6</span><span>احرص على النوم الجيد من 7 إلى 9 ساعات.</span></div>
+        <div class="rule-row"><span class="rule-idx">7</span><span>اجعل المشي جزءاً ثابتاً من حياتك اليومية.</span></div>
+      </div>
+
+      <!-- Backup Export / Import -->
+      <div class="card">
+        <h3 class="card-title" style="margin-bottom:4px;">النسخ الاحتياطي لبياناتك 💾</h3>
+        <p class="card-sub" style="margin-bottom:11px;">حفظ أو استعادة جميع الأوزان والقياسات والتقدم (JSON)</p>
+        <div class="form-2col" style="margin-bottom:0;">
+          <button class="btn-soft" onclick="exportBackup()">📤 تصدير نسخة</button>
+          <button class="btn-soft" onclick="document.getElementById('import-inp').click()">📥 استيراد نسخة</button>
+        </div>
+        <input id="import-inp" type="file" accept="application/json" style="display:none;" onchange="importBackup(event)" />
+      </div>
+    </section>
+  </div>
+
+  <!-- =========================================================================
+       COLLAPSIBLE FLOATING REST TIMER
+       ========================================================================= -->
+  <div class="rest-pill-wrap">
+    <div id="rest-bar" class="rest-bar">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button class="r-chip" style="padding:5px 7px;" onclick="toggleRestCollapse()" title="تصغير / توسيع المؤقت" aria-label="تصغير المؤقت">
+          <span id="rest-collapse-icon">⤢</span>
+        </button>
+        <div>
+          <div class="rest-label" style="font-size:0.62rem;color:#9CA3AF;font-weight:700;">مؤقت الراحة</div>
+          <div id="rest-clock" class="rest-digits">00:00</div>
+        </div>
+      </div>
+
+      <div class="rest-controls-area" id="rest-presets" style="display:flex;gap:5px;">
+        <button class="r-chip" onclick="startRest(90)">90ث</button>
+        <button class="r-chip red" onclick="startRest(120)">120ث</button>
+        <button class="r-chip" onclick="startRest(180)">180ث</button>
+      </div>
+
+      <div class="rest-controls-area" id="rest-running-btns" style="display:none;gap:5px;">
+        <button class="r-chip" onclick="adjustRest(-15)">-15ث</button>
+        <button class="r-chip" onclick="adjustRest(15)">+15ث</button>
+        <button class="r-chip red" onclick="stopRest()">تخطي</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FLOATING GLASSMORPHIC 4-TAB BOTTOM NAVIGATION
+       ========================================================================= -->
+  <div class="floating-nav-wrap">
+    <nav class="bottom-nav" aria-label="التنقل الرئيسي">
+      <button class="nav-item active" id="nav-workout" onclick="switchTab('workout')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6.5 6.5h11M6.5 17.5h11M3 10v4M21 10v4M6 7v10M18 7v10M6 12h12"/></svg>
+        <span>التمارين</span>
+      </button>
+      <button class="nav-item" id="nav-nutrition" onclick="switchTab('nutrition')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+        <span>التغذية والماء</span>
+      </button>
+      <button class="nav-item" id="nav-progress" onclick="switchTab('progress')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        <span>التقدم</span>
+      </button>
+      <button class="nav-item" id="nav-guide" onclick="switchTab('guide')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span>الدليل والتذكير</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 1: REALISTIC ANATOMICAL CANVAS SIMULATION & GRIP DETAILS
+       ========================================================================= -->
+  <div id="sim-modal" class="modal-overlay" onclick="if(event.target===this) closeSim()">
+    <div class="modal-sheet">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+        <div>
+          <span id="sim-muscle" class="badge badge-red">العضلة</span>
+          <h3 id="sim-name-ar" style="font-size:1.12rem;font-weight:900;margin-top:4px;">اسم التمرين</h3>
+          <div id="sim-name-en" class="ex-title-en">Exercise Name</div>
+        </div>
+        <button class="step-btn" onclick="closeSim()" aria-label="إغلاق">✕</button>
+      </div>
+
+      <!-- High-DPI Anatomical Human + Equipment Canvas -->
+      <div class="canvas-stage">
+        <canvas id="anatomy-canvas"></canvas>
+
+        <!-- Live Motion Phase Bar -->
+        <div class="phase-strip">
+          <div id="ph-conc" class="phase-chip on">🔥 انقباض / دفع</div>
+          <div id="ph-hold" class="phase-chip">⚡ ثبات لحظي</div>
+          <div id="ph-ecc" class="phase-chip">⬇️ نزول متحكم به</div>
+        </div>
+
+        <!-- Playback & Speed Controls -->
+        <div class="sim-toolbar">
+          <button id="sim-play-btn" class="btn-primary" style="padding:7px 13px;font-size:0.76rem;" onclick="toggleSimPlay()">⏸ إيقاف مؤقت</button>
+          <div class="speed-pills">
+            <button class="spd-btn active" id="spd-1" onclick="setSimSpeed(1)">1x عادي</button>
+            <button class="spd-btn" id="spd-0.5" onclick="setSimSpeed(0.5)">0.5x بطيء</button>
+            <button class="spd-btn" id="spd-0.25" onclick="setSimSpeed(0.25)">0.25x تفصيلي</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grip & Posture Details Box -->
+      <div class="grip-box">
+        <div style="font-size:0.84rem;font-weight:900;color:var(--red-600);">✋ تفاصيل القبضة والوضعية والتنفس</div>
+        <div class="grip-grid">
+          <div class="grip-item"><span class="grip-tag">القبضة</span><span id="sim-grip" style="font-weight:700;color:var(--ink-900);"></span></div>
+          <div class="grip-item"><span class="grip-tag">الزاوية</span><span id="sim-angle" style="font-weight:700;color:var(--ink-900);"></span></div>
+          <div class="grip-item"><span class="grip-tag">التنفس</span><span id="sim-breath" style="font-weight:700;color:var(--ink-900);"></span></div>
+        </div>
+      </div>
+
+      <!-- Direct YouTube Video Link -->
+      <a id="sim-yt" class="yt-btn" href="#" target="_blank" rel="noopener noreferrer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#EF4444"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+        مشاهدة فيديو حقيقي على يوتيوب
+      </a>
+
+      <div class="info-panel">
+        <strong style="color:var(--red-600);">✅ خطوات الأداء الصحيح:</strong>
+        <ul id="sim-cues"></ul>
+      </div>
+
+      <div class="info-panel" style="background:var(--red-50);border-color:var(--red-200);">
+        <strong style="color:var(--red-700);">⚠️ خطأ شائع تجنبه:</strong>
+        <p id="sim-mistake" style="color:var(--red-700);font-weight:600;margin-top:3px;"></p>
+      </div>
+
+      <button class="btn-primary" style="width:100%;padding:12px;" onclick="closeSim()">فهمت الأداء، لننطلق! 💪</button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: CELEBRATION SUMMARY MODAL
+       ========================================================================= -->
+  <div id="cel-modal" class="modal-overlay" onclick="if(event.target===this) closeCelebrate()">
+    <div class="modal-sheet" style="text-align:center;">
+      <div style="font-size:3rem;margin-bottom:4px;">🏆🔥</div>
+      <h2 style="font-size:1.25rem;font-weight:900;color:var(--red-600);">أحسنت يا بطل! تم حفظ إنجاز اليوم</h2>
+      <p id="cel-quote" style="font-size:0.84rem;color:var(--ink-700);font-weight:700;margin:6px 0 15px;"></p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;">
+        <div class="macro-tile accent"><div id="cel-sets" class="macro-num">0</div><div class="macro-label">جولة / نشاط</div></div>
+        <div class="macro-tile"><div id="cel-vol" class="macro-num">0</div><div class="macro-label">إجمالي الوزن (كجم)</div></div>
+        <div class="macro-tile"><div id="cel-streak" class="macro-num">1</div><div class="macro-label">سلسلة الالتزام 🔥</div></div>
+      </div>
+      <button class="btn-primary" style="width:100%;padding:13px;" onclick="closeCelebrate()">استمر نحو هدف الـ 12 أسبوعاً 💪</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    /* =========================================================================
+       1. MASTER 12-WEEK PROGRAM DATA (EXACTLY MATCHING SCHEDULE)
+       ========================================================================= */
+    const PHASES = [
+      { range: [1, 2], label: "الأسبوع 1–2", title: "تعلم التمارين والتعود على الجيم", tip: "نفّذ مجموعتين في معظم التمارين إذا كان حجم التدريب مرهقاً، وركز على إتقان الحركة والقبضة الصحيحة." },
+      { range: [3, 4], label: "الأسبوع 3–4", title: "تثبيت البرنامج والبدء بزيادة الأوزان", tip: "عندما تكمل جميع التكرارات بتكنيك ممتاز، أضف وزناً بسيطاً تدريجياً في الجلسة القادمة." },
+      { range: [5, 6], label: "الأسبوع 5–6", title: "تحسين القوة والتحمل", tip: "التزم بالراحة 90–120 ثانية وراقب تطور أوزانك مقارنة بالأسابيع الأولى." },
+      { range: [7, 7], label: "الأسبوع 7", title: "تخفيف حجم التمرين والاستشفاء (Deload)", tip: "أسبوع استشفاء ذكي: خفف الأوزان 20–30% لتعافي المفاصل والعضلات والعودة بقوة مضاعفة." },
+      { range: [8, 10], label: "الأسبوع 8–10", title: "مواصلة زيادة الأوزان تدريجياً", tip: "لا تغيّر التمارين؛ التكرار والتدرج المنظم هما سر التغيير الجسدي الحقيقي." },
+      { range: [11, 12], label: "الأسبوع 11–12", title: "تقييم التغير في الجسم والقوة", tip: "قارن وزنك ومحيط بطنك وأوزان تمارينك بالأسبوع الأول.. استمتع بثمرة التزامك!" }
+    ];
+
+    const WEEKLY_SCHEDULE = [
+      {
+        id: "sat", short: "السبت", type: "حديد A + كارديو", duration: "75 دقيقة", mode: "gym",
+        title: "السبت — حديد A: الصدر والظهر والأرجل", adherenceLabel: "جيم A + كارديو",
+        exercises: [
+          {
+            id: "sat_1", anim: "bench_press", nameEn: "Bench Press", nameAr: "ضغط صدر بالبار", muscle: "الصدر الأوسط",
+            sets: 3, reps: "8", rest: 120,
+            grip: "قبضة علوية أوسع قليلاً من عرض الكتفين مع لف الإبهام بإحكام حول البار.",
+            angle: "زاوية المرفق 45° مع الجذع، مع ثبات لوحي الكتف والقدمين على الأرض.",
+            breath: "شهيق عميق عند إنزال البار للصدر، وزفير قوي أثناء الدفع للأعلى.",
+            cues: ["أنزل البار ببطء وتحكم حتى يلامس منتصف الصدر برفق.", "ادفع للأعلى بمسار ثابت دون قفل المرفقين بعنف."],
+            mistake: "فتح المرفقين بزاوية 90° أو ارتداد البار عن الصدر."
+          },
+          {
+            id: "sat_2", anim: "lat_pulldown", nameEn: "Lat Pulldown", nameAr: "سحب علوي للظهر", muscle: "الظهر العريض (Lats)",
+            sets: 3, reps: "10", rest: 90,
+            grip: "قبضة علوية واسعة على أطراف البار المائل، الأصابع محكمة حول البار.",
+            angle: "ميل طفيف جداً للخلف (10–15°) مع تثبيت الفخذين جيداً تحت الوسادة.",
+            breath: "زفير عند سحب البار لأعلى الصدر، وشهيق عند العودة للأعلى ببطء.",
+            cues: ["اسحب بمرفقيك للأسفل باتجاه خصرك وليس بساعديك فقط.", "اعصر لوحي الكتف في الأسفل لثانية كاملة."],
+            mistake: "التأرجح بالظهر للخلف أو سحب البار خلف الرقبة."
+          },
+          {
+            id: "sat_3", anim: "leg_press", nameEn: "Leg Press", nameAr: "دفع الأرجل بالجهاز", muscle: "الفخذ الأمامي والمؤخرة",
+            sets: 3, reps: "10", rest: 120,
+            grip: "أمسك بالمقبضين الجانبيين بقوة لتثبيت الحوض وأسفل الظهر بالمقعد.",
+            angle: "القدمان بعرض الكتفين في منتصف اللوح، والنزول حتى زاوية ركبة 90°.",
+            breath: "شهيق عند النزول، وزفير أثناء الدفع من منتصف القدم والكعبين.",
+            cues: ["أبقِ أسفل ظهرك ملتصقاً بالمقعد طوال التمرين.", "توقف قبل فرد الركبتين بالكامل (لا تقفل المفصل)."],
+            mistake: "قفل الركبتين عند الدفع أو ارتفاع أسفل الظهر عن المقعد."
+          },
+          {
+            id: "sat_4", anim: "cable_row", nameEn: "Seated Cable Row", nameAr: "سحب أرضي جالس للظهر", muscle: "منتصف الظهر",
+            sets: 2, reps: "12", rest: 90,
+            grip: "قبضة محايدة محكمة على مقبض V-Bar (راحتا اليدين متقابلتان).",
+            angle: "الظهر مستقيم عمودي تماماً مع ثني خفيف وثابت في الركبتين.",
+            breath: "زفير عند سحب المقبض نحو السرة، وشهيق عند الإطالة للأمام بتحكم.",
+            cues: ["اسحب المرفقين للخلف بمحاذاة جسمك واجمع لوحي الكتف.", "حافظ على الصدر مرفوعاً والكتفين منخفضين."],
+            mistake: "تقويس الظهر أو التأرجح المتكرر للأمام والخلف."
+          },
+          {
+            id: "sat_5", anim: "shoulder_press", nameEn: "Dumbbell Shoulder Press", nameAr: "ضغط أكتاف بالدمبل", muscle: "الأكتاف الأمامية والجانبية",
+            sets: 2, reps: "10", rest: 90,
+            grip: "قبضة كاملة ومحكمة حول الدامبل (المعصم مستقيم فوق الساعد).",
+            angle: "مقعد بمسند عمودي (80–85°)، والمرفقان للأمام قليلاً بزاوية 30°.",
+            breath: "زفير عند الدفع للأعلى، وشهيق عند النزول لمستوى الأذنين.",
+            cues: ["ادفع الدمبل للأعلى بسلاسة دون اصطدامهما بقوة.", "أبقِ أسفل ظهرك مسنوداً على المقعد."],
+            mistake: "تقويس أسفل الظهر بشدة عند استخدام وزن ثقيل."
+          },
+          {
+            id: "sat_6", anim: "bicep_curl", nameEn: "Biceps Curl", nameAr: "بايسبس كيرل", muscle: "عضلة البايسبس",
+            sets: 2, reps: "12", rest: 90,
+            grip: "قبضة سفلية (راحتا اليدين للأعلى Supinated) مع ثبات المعصم.",
+            angle: "المرفقان ملتصقان بجانبي الجذع دون حركة للأمام.",
+            breath: "زفير عند رفع الدامبل للأعلى، وشهيق عند النزول البطيء.",
+            cues: ["ارفع حتى انقباض كامل للبايسبس ثم انزل ببطء لمدة ثانيتين."],
+            mistake: "مرجحة الجذع أو رفع المرفقين للمساعدة بالوزن."
+          },
+          {
+            id: "sat_7", anim: "plank", nameEn: "Plank", nameAr: "تمرين البلانك", muscle: "البطن والجذع (Core)",
+            sets: 3, reps: "30 ثانية", rest: 90, isPlank: true,
+            grip: "الارتكاز على الساعدين مع تشبيك اليدين أو فردهما أمامك بثبات.",
+            angle: "المرفق تحت الكتف مباشرة، والجسم في خط مستقيم من الرأس للكعبين.",
+            breath: "تنفس هادئ ومنتظم طوال الـ 30 ثانية دون حبس النفس.",
+            cues: ["شد عضلات البطن والمؤخرة بقوة لمنع هبوط أسفل الظهر."],
+            mistake: "هبوط الورك للأسفل أو رفعه عالياً كالهرم."
+          }
+        ]
+      },
+      {
+        id: "sun", short: "الأحد", type: "مشي سريع", duration: "30 دقيقة", mode: "walk", walkMinutes: 30,
+        title: "الأحد — مشي سريع (30 دقيقة)", adherenceLabel: "مشي 30 دقيقة",
+        tips: ["حافظ على وتيرة مشي سريعة ومنتظمة ترفع نبض القلب بشكل معتدل.", "المشي النشط يحسن اللياقة ويسرّع حرق الدهون بدون إجهاد للمفاصل."]
+      },
+      {
+        id: "mon", short: "الاثنين", type: "حديد B + كارديو", duration: "75 دقيقة", mode: "gym",
+        title: "الاثنين — حديد B: الأرجل والصدر والأكتاف", adherenceLabel: "جيم B + كارديو",
+        exercises: [
+          {
+            id: "mon_1", anim: "goblet_squat", nameEn: "Goblet Squat", nameAr: "سكوات الكأس بالدمبل", muscle: "الفخذ الأمامي والمؤخرة",
+            sets: 3, reps: "10", rest: 120,
+            grip: "احمل الطرف العلوي للدامبل بكلتا يديك عمودياً ملاصقاً لصدرك.",
+            angle: "القدمان أوسع قليلاً من الكتفين، النزول حتى توازي الفخذ مع الأرض.",
+            breath: "شهيق عند النزول، وزفير قوي أثناء الدفع للصعود.",
+            cues: ["أبقِ صدرك مرفوعاً وظهرك مستقيماً وادفع الركبتين للخارج قليلاً."],
+            mistake: "رفع الكعبين عن الأرض أو انحناء الظهر للأمام."
+          },
+          {
+            id: "mon_2", anim: "incline_press", nameEn: "Incline Dumbbell Press", nameAr: "ضغط صدر علوي بالدمبل", muscle: "الصدر العلوي",
+            sets: 3, reps: "10", rest: 90,
+            grip: "قبضة محكمة على الدامبل بزاوية مائلة قليلاً للداخل لراحة الكتف.",
+            angle: "مقعد مائل بزاوية 30–35°، والمرفقان بزاوية 45° مع الجذع.",
+            breath: "شهيق عند النزول بمحاذاة أعلى الصدر، وزفير عند الدفع.",
+            cues: ["تحكم بالوزن في النزول والصعود بمسار متوازن."],
+            mistake: "ضبط المقعد بزاوية 45° فأكثر مما ينقل الحمل للكتف."
+          },
+          {
+            id: "mon_3", anim: "deadlift", nameEn: "Romanian Deadlift", nameAr: "رفعة ميتة رومانية", muscle: "الفخذ الخلفي وأسفل الظهر",
+            sets: 3, reps: "10", rest: 120,
+            grip: "قبضة علوية محكمة بعرض الكتفين مع إبقاء البار ملاصقاً للساقين.",
+            angle: "ثنية ركبة خفيفة وثابتة (15°)، ودفع الورك للخلف بظهر مستقيم تماماً.",
+            breath: "شهيق عند دفع الورك للخلف، وزفير عند الصعود وشد المؤخرة.",
+            cues: ["انزل حتى منتصف الساق عند الشعور بشد واضح في الفخذ الخلفي ثم اصعد."],
+            mistake: "تقوس أسفل الظهر أو إبعاد الوزن عن الجسم."
+          },
+          {
+            id: "mon_4", anim: "cable_row", nameEn: "Seated Cable Row", nameAr: "سحب أرضي جالس للظهر", muscle: "منتصف الظهر",
+            sets: 3, reps: "10", rest: 90,
+            grip: "قبضة محايدة محكمة على مقبض V-Bar.",
+            angle: "ظهر مستقيم تماماً وسحب المرفقين بجانب الجذع نحو البطن.",
+            breath: "زفير عند السحب، وشهيق عند العودة ببطء.",
+            cues: ["توقف لثانية عند السحب لعصر عضلات منتصف الظهر."],
+            mistake: "رفع الكتفين نحو الأذنين أثناء السحب."
+          },
+          {
+            id: "mon_5", anim: "lateral_raise", nameEn: "Lateral Raises", nameAr: "رفرفة جانبية للأكتاف", muscle: "الكتف الجانبي",
+            sets: 3, reps: "12", rest: 90,
+            grip: "قبضة مريحة على الدامبل مع انحناء طفيف جداً بالمرفقين.",
+            angle: "رفع الذراعين جانبياً حتى مستوى الكتف تماماً (90°).",
+            breath: "زفير عند الرفع، وشهيق عند النزول البطيء المتحكم به.",
+            cues: ["قُد الحركة بمرفقيك وليس بمعصميك، وتجنب هز الجسم."],
+            mistake: "استخدام أوزان ثقيلة تجبرك على مرجحة الجذع."
+          },
+          {
+            id: "mon_6", anim: "tricep_pushdown", nameEn: "Triceps Pushdown", nameAr: "دفع ترايسبس بالكابل", muscle: "عضلة الترايسبس",
+            sets: 2, reps: "12", rest: 90,
+            grip: "قبضة محكمة على الحبل أو البار المستقيم مع معصم مستقيم.",
+            angle: "المرفقان ثابتان تماماً بجانب الضلوع طوال الحركة.",
+            breath: "زفير عند الدفع للأسفل حتى الفرد الكامل، وشهيق عند العودة.",
+            cues: ["افصل طرفي الحبل قليلاً بالأسفل لزيادة انقباض الترايسبس."],
+            mistake: "تحريك الكتفين أو فتح المرفقين للخارج."
+          },
+          {
+            id: "mon_7", anim: "crunch", nameEn: "Abdominal Crunch", nameAr: "طحن البطن", muscle: "عضلات البطن العلوية",
+            sets: 3, reps: "15", rest: 90,
+            grip: "ضع يديك برفق خلف الأذنين أو متقاطعتين على الصدر دون شد الرقبة.",
+            angle: "الركبتان مثنيتان 90° والقدمان ثابتتان على الأرض.",
+            breath: "زفير كامل عند رفع أعلى الظهر وعصر البطن، وشهيق عند النزول.",
+            cues: ["ارفع لوحي كتفك فقط باستخدام عضلات البطن ببطء وتركيز."],
+            mistake: "سحب الرقبة بقوة باليدين أثناء الصعود."
+          }
+        ]
+      },
+      {
+        id: "tue", short: "الثلاثاء", type: "مشي سريع", duration: "30 دقيقة", mode: "walk", walkMinutes: 30,
+        title: "الثلاثاء — مشي سريع (30 دقيقة)", adherenceLabel: "مشي 30 دقيقة",
+        tips: ["اجعل المشي عادة صباحية أو مسائية ممتعة، وحافظ على استقامة ظهرك.", "اشرب كوب ماء قبل وبعد المشي."]
+      },
+      {
+        id: "wed", short: "الأربعاء", type: "حديد C + كارديو", duration: "75 دقيقة", mode: "gym",
+        title: "الأربعاء — حديد C: الجسم بالكامل", adherenceLabel: "جيم C + كارديو",
+        exercises: [
+          {
+            id: "wed_1", anim: "squat", nameEn: "Squat", nameAr: "سكوات بالبار", muscle: "الأرجل بالكامل",
+            sets: 3, reps: "8", rest: 120,
+            grip: "قبضة متوسطة على البار المستقر فوق عضلات أعلى الظهر (التربيز).",
+            angle: "القدمان بعرض الكتفين، والنزول بظهر مستقيم حتى توازي الفخذ للأرض.",
+            breath: "شهيق عميق وشد للبطن قبل النزول، وزفير قوي أثناء الصعود.",
+            cues: ["ادفع من منتصف القدم وكعبيك وحافظ على توازن الركبتين."],
+            mistake: "ميل الركبتين للداخل أو وضع البار مباشرة على فقرات الرقبة."
+          },
+          {
+            id: "wed_2", anim: "chest_machine", nameEn: "Chest Press Machine", nameAr: "ضغط صدر بالجهاز", muscle: "عضلات الصدر",
+            sets: 3, reps: "10", rest: 90,
+            grip: "قبضة محكمة على منتصف المقابض بمحاذاة منتصف الصدر تماماً.",
+            angle: "المرفقان أسفل مستوى الكتف قليلاً مع ثبات الظهر على المسند.",
+            breath: "زفير عند الدفع للأمام، وشهيق عند العودة بتحكم.",
+            cues: ["اضبط ارتفاع المقعد قبل البدء ولا تقفل المرفقين في نهاية الدفع."],
+            mistake: "تقدم الكتفين للأمام بعيداً عن مسند الظهر."
+          },
+          {
+            id: "wed_3", anim: "lat_pulldown", nameEn: "Lat Pulldown", nameAr: "سحب علوي للظهر", muscle: "الظهر العريض",
+            sets: 3, reps: "10", rest: 90,
+            grip: "قبضة علوية أوسع من الكتفين مع لف الأصابع بإحكام.",
+            angle: "اسحب البار نحو أعلى الصدر مع دفع المرفقين للأسفل.",
+            breath: "زفير عند السحب، وشهيق عند الصعود البطيء.",
+            cues: ["ركز على عصر عضلة الظهر وليس الذراعين فقط."],
+            mistake: "السحب بعنف باستخدام وزن الجسم."
+          },
+          {
+            id: "wed_4", anim: "leg_curl", nameEn: "Leg Curl", nameAr: "ثني الأرجل الخلفية", muscle: "الفخذ الخلفي",
+            sets: 2, reps: "12", rest: 90,
+            grip: "أمسك بالمقبضين الجانبيين لتثبيت جسمك تماماً على المقعد.",
+            angle: "وسادة الكاحل فوق كعب القدم مباشرة، وثني كامل بمدى حركي مريح.",
+            breath: "زفير عند سحب الوزن للأسفل، وشهيق عند العودة ببطء.",
+            cues: ["توقف لثانية عند أقصى انقباض للفخذ الخلفي."],
+            mistake: "إسقاط الوزن بسرعة أو رفع الورك عن المقعد."
+          },
+          {
+            id: "wed_5", anim: "face_pull", nameEn: "Face Pull", nameAr: "سحب للوجه للأكتاف الخلفية", muscle: "الكتف الخلفي وأعلى الظهر",
+            sets: 2, reps: "15", rest: 90,
+            grip: "أمسك طرفي الحبل بقبضة محايدة (الإبهام يشير للخلف باتجاهك).",
+            angle: "اسحب نحو الجبهة مع فتح المرفقين للخارج وللأعلى.",
+            breath: "زفير عند السحب للوجه، وشهيق عند العودة للأمام.",
+            cues: ["استخدم وزناً خفيفاً إلى متوسط مع عصر أعلى الظهر لثانية."],
+            mistake: "استخدام وزن ثقيل يفقدك التوازن."
+          },
+          {
+            id: "wed_6", anim: "hammer_curl", nameEn: "Hammer Curl", nameAr: "بايسبس مطرقة", muscle: "البايسبس والساعد",
+            sets: 2, reps: "12", rest: 90,
+            grip: "قبضة محايدة (الإبهام للأعلى كالمطرقة Neutral Grip) طوال التمرين.",
+            angle: "المرفقان ثابتان بجانب خصرك بدون أي مرجحة.",
+            breath: "زفير عند الرفع، وشهيق عند النزول البطيء.",
+            cues: ["ارفع بتحكم كامل حتى تقترب الدامبل من الكتف ثم انزل ببطء."],
+            mistake: "إسقاط الوزن بسرعة في مرحلة النزول."
+          },
+          {
+            id: "wed_7", anim: "tricep_pushdown", nameEn: "Triceps Pushdown", nameAr: "دفع ترايسبس بالكابل", muscle: "الترايسبس",
+            sets: 2, reps: "12", rest: 90,
+            grip: "قبضة محكمة على الحبل أو البار مع معصم مستقيم.",
+            angle: "تثبيت المرفقين بجانب الجسم تماماً.",
+            breath: "زفير عند الدفع للأسفل، وشهيق عند العودة.",
+            cues: ["اعصر الترايسبس بالأسفل لثانية في كل تكرار."],
+            mistake: "الانحناء بوزن الجسم فوق المقبض."
+          },
+          {
+            id: "wed_8", anim: "plank", nameEn: "Plank", nameAr: "تمرين البلانك", muscle: "البطن والجذع",
+            sets: 3, reps: "30 ثانية", rest: 90, isPlank: true,
+            grip: "الارتكاز الثابت على الساعدين وأطراف أصابع القدمين.",
+            angle: "استقامة تامة من الرأس حتى الكعبين.",
+            breath: "تنفس منتظم وهادئ دون انقطاع.",
+            cues: ["شد البطن والمؤخرة طوال الـ 30 ثانية."],
+            mistake: "تقوس أسفل الظهر للأسفل."
+          }
+        ]
+      },
+      {
+        id: "thu", short: "الخميس", type: "مشي وتمدد", duration: "20 دقيقة", mode: "stretch", walkMinutes: 20,
+        title: "الخميس — مشي خفيف وتمدد (20 دقيقة)", adherenceLabel: "مشي خفيف وتمدد",
+        stretches: [
+          { id: "st1", name: "تمدد الفخذ الأمامي والخلفي (30ث لكل رجل)" },
+          { id: "st2", name: "تمدد أسفل وأعلى الظهر (وضعية الطفل)" },
+          { id: "st3", name: "تمدد الصدر وفتح الكتفين على الجدار" },
+          { id: "st4", name: "تمدد الرقبة والساعدين بلطف" }
+        ]
+      },
+      {
+        id: "fri", short: "الجمعة", type: "راحة وقياس", duration: "استشفاء كامل", mode: "rest",
+        title: "الجمعة — راحة كاملة وقياس الوزن والخصر", adherenceLabel: "راحة وقياس الوزن والخصر"
+      }
+    ];
+
+    const MEALS = [
+      { id: "m1", time: "6:00 صباحاً – قبل الجيم", items: "موزة + حبتان تمر + ماء" },
+      { id: "m2", time: "8:00 صباحاً – بعد الجيم", items: "150 جم تونة مصفاة + 100 جم خبز + فاكهة" },
+      { id: "m3", time: "1:30 ظهراً – الغداء", items: "180 جم سمك + 250 جم أرز مطبوخ + فاكهة" },
+      { id: "m4", time: "5:00 مساءً – وجبة خفيفة", items: "20 جم مكسرات + حبة فاكهة + تمرتان" },
+      { id: "m5", time: "8:00 مساءً – العشاء", items: "150 جم لحم قليل الدهون + 250 جم بطاطس + خبز حسب احتياج السعرات" }
+    ];
+
+    const REM_DAYS = [
+      { idx: 6, short: "سبت", ics: "SA" }, { idx: 0, short: "أحد", ics: "SU" },
+      { idx: 1, short: "إثنين", ics: "MO" }, { idx: 2, short: "ثلاثاء", ics: "TU" },
+      { idx: 3, short: "أربعاء", ics: "WE" }, { idx: 4, short: "خميس", ics: "TH" },
+      { idx: 5, short: "جمعة", ics: "FR" }
+    ];
+
+    const QUOTES = [
+      "الالتزام يتفوق على الحماس.. خطوة جديدة نحو نسخة أقوى منك! 🔥",
+      "أنجزت ما وعدت نفسك به اليوم، وهذا ما يصنع الأبطال! 🏆",
+      "التكرار والتدرج هما سر التغيير الحقيقي.. استمر يا وحش! 💪"
+    ];
+
+    /* =========================================================================
+       2. STATE & STORAGE
+       ========================================================================= */
+    const STORAGE_KEY = "smartTrainer12W_pro_v4";
+
+    function todayISO() {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    }
+
+    let state = {
+      currentWeek: 1,
+      selectedDayId: "sat",
+      exerciseLogs: {},
+      bestWeights: {},
+      cardioDone: {},
+      stretchDone: {},
+      weeklyAdherence: { sat: false, sun: false, mon: false, tue: false, wed: false, thu: false, fri: false },
+      archivedWeeks: [],
+      workoutHistory: [],
+      streakDates: [],
+      mealsDate: todayISO(),
+      mealsDone: {},
+      waterCups: 0,
+      measurements: [{ id: 1, date: todayISO(), weight: 75.0, waist: "", note: "الوزن الابتدائي" }],
+      biweekly: { photos: "", fitness: "" },
+      reminder: { time: "06:00", days: [6, 0, 1, 2, 3, 4], lastFired: "" }
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const p = JSON.parse(raw);
+          state = {
+            ...state, ...p,
+            weeklyAdherence: { ...state.weeklyAdherence, ...(p.weeklyAdherence || {}) },
+            reminder: { ...state.reminder, ...(p.reminder || {}) },
+            biweekly: { ...state.biweekly, ...(p.biweekly || {}) }
+          };
+        }
+        if (state.mealsDate !== todayISO()) {
+          state.mealsDate = todayISO();
+          state.mealsDone = {};
+          state.waterCups = 0;
+        }
+      } catch (e) {}
+    }
+
+    function saveState() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    /* =========================================================================
+       3. AUDIO & TOAST
+       ========================================================================= */
+    function playChime(celebrate = false) {
+      try {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        const ctx = new AC();
+        const notes = celebrate ? [523.25, 659.25, 783.99, 1046.5] : [660, 880];
+        notes.forEach((f, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.12);
+          gain.gain.setValueAtTime(0.15, ctx.currentTime + i * 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.12 + 0.3);
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.start(ctx.currentTime + i * 0.12);
+          osc.stop(ctx.currentTime + i * 0.12 + 0.32);
+        });
+      } catch (e) {}
+      if (navigator.vibrate) navigator.vibrate(celebrate ? [130, 60, 130, 60, 200] : [160, 80, 160]);
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove("show"), 2900);
+    }
+
+    /* =========================================================================
+       4. HEADER, RING PROGRESS & STREAK
+       ========================================================================= */
+    function getPhase(w) {
+      return PHASES.find(p => w >= p.range[0] && w <= p.range[1]) || PHASES[0];
+    }
+
+    function computeStreak() {
+      const uniq = [...new Set(state.streakDates)].sort().reverse();
+      if (!uniq.length) return 0;
+      const t = todayISO();
+      const y = new Date(); y.setDate(y.getDate() - 1);
+      const yISO = `${y.getFullYear()}-${String(y.getMonth() + 1).padStart(2, "0")}-${String(y.getDate()).padStart(2, "0")}`;
+      if (uniq[0] !== t && uniq[0] !== yISO) return 0;
+      let s = 1;
+      let cur = new Date(uniq[0] + "T12:00:00");
+      for (let i = 1; i < uniq.length; i++) {
+        cur.setDate(cur.getDate() - 1);
+        const exp = `${cur.getFullYear()}-${String(cur.getMonth() + 1).padStart(2, "0")}-${String(cur.getDate()).padStart(2, "0")}`;
+        if (uniq[i] === exp) s++; else break;
+      }
+      return s;
+    }
+
+    function renderHeader() {
+      const sel = document.getElementById("week-select");
+      if (!sel.options.length) {
+        for (let w = 1; w <= 12; w++) {
+          const o = document.createElement("option");
+          o.value = w; o.textContent = `الأسبوع ${w} من 12`;
+          sel.appendChild(o);
+        }
+      }
+      sel.value = state.currentWeek;
+
+      const p = getPhase(state.currentWeek);
+      document.getElementById("hdr-phase-badge").textContent = p.label;
+      document.getElementById("hdr-phase-title").textContent = `📌 ${p.title}`;
+      document.getElementById("hdr-phase-tip").textContent = `💡 ${p.tip}`;
+
+      const done = Object.values(state.weeklyAdherence).filter(Boolean).length;
+      document.getElementById("hdr-ring-text").textContent = `${done}/7`;
+      const circ = 119.38;
+      document.getElementById("hdr-ring-circle").style.strokeDashoffset = (circ - (done / 7) * circ).toFixed(2);
+      document.getElementById("hdr-streak").textContent = computeStreak();
+    }
+
+    function setWeek(w) {
+      state.currentWeek = Math.max(1, Math.min(12, w));
+      saveState(); renderHeader(); renderProgressTab();
+    }
+    function changeWeek(d) { setWeek(state.currentWeek + d); }
+
+    /* =========================================================================
+       5. NAVIGATION (4 TABS)
+       ========================================================================= */
+    function switchTab(tab) {
+      document.querySelectorAll(".tab-section").forEach(s => s.classList.remove("active"));
+      document.querySelectorAll(".nav-item").forEach(b => b.classList.remove("active"));
+      document.getElementById(`tab-${tab}`).classList.add("active");
+      document.getElementById(`nav-${tab}`).classList.add("active");
+
+      if (tab === "workout") renderWorkoutTab();
+      if (tab === "nutrition") renderNutritionTab();
+      if (tab === "progress") renderProgressTab();
+      if (tab === "guide") renderGuideTab();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /* =========================================================================
+       6. TAB 1: WORKOUTS, PLANK TIMER & CARDIO TIMER
+       ========================================================================= */
+    let inlineTimers = {};
+    function clearInlineTimers() {
+      Object.values(inlineTimers).forEach(t => clearInterval(t.iv));
+      inlineTimers = {};
+    }
+
+    function getExRows(ex) {
+      if (!state.exerciseLogs[ex.id] || state.exerciseLogs[ex.id].length !== ex.sets) {
+        const prev = state.exerciseLogs[ex.id] || [];
+        state.exerciseLogs[ex.id] = Array.from({ length: ex.sets }, (_, i) => ({
+          weight: prev[i]?.weight ?? "",
+          reps: prev[i]?.reps ?? (ex.isPlank ? "30ث" : ex.reps),
+          done: prev[i]?.done ?? false
+        }));
+      }
+      return state.exerciseLogs[ex.id];
+    }
+
+    function selectDay(id) {
+      clearInlineTimers();
+      state.selectedDayId = id;
+      saveState();
+      renderWorkoutTab();
+    }
+
+    function renderWorkoutTab() {
+      const scroller = document.getElementById("days-scroller");
+      scroller.innerHTML = "";
+      WEEKLY_SCHEDULE.forEach(d => {
+        const done = !!state.weeklyAdherence[d.id];
+        const b = document.createElement("button");
+        b.className = `day-pill ${state.selectedDayId === d.id ? "active" : ""}`;
+        b.onclick = () => selectDay(d.id);
+        b.innerHTML = `
+          ${done ? `<span class="day-check-badge">✓</span>` : ""}
+          <span class="day-pill-name">${d.short}</span>
+          <span class="day-pill-sub">${d.type}</span>
+        `;
+        scroller.appendChild(b);
+      });
+
+      const day = WEEKLY_SCHEDULE.find(d => d.id === state.selectedDayId) || WEEKLY_SCHEDULE[0];
+      document.getElementById("day-badge").textContent = day.type;
+      document.getElementById("day-title").textContent = day.title;
+      document.getElementById("day-duration").textContent = `المدة المتوقعة: ${day.duration}`;
+
+      const body = document.getElementById("day-body");
+      body.innerHTML = "";
+
+      if (day.mode === "gym") {
+        day.exercises.forEach((ex, idx) => {
+          const rows = getExRows(ex);
+          const allDone = rows.every(r => r.done);
+          const bestW = state.bestWeights[ex.id];
+
+          const card = document.createElement("div");
+          card.className = `ex-card ${allDone ? "all-done" : ""}`;
+
+          const plankHtml = ex.isPlank ? `
+            <div class="plank-box">
+              <div>
+                <div style="font-size:0.65rem;color:#9CA3AF;font-weight:700;">مؤقت البلانك المدمج</div>
+                <div id="plank-clk-${ex.id}" class="plank-clock">00:30</div>
+              </div>
+              <div style="display:flex;gap:6px;">
+                <button class="r-chip red" onclick="togglePlank('${ex.id}', 30)">▶ ابدأ 30ث</button>
+                <button class="r-chip" onclick="resetPlank('${ex.id}', 30)">إعادة</button>
+              </div>
+            </div>
+          ` : "";
+
+          const rowsHtml = rows.map((r, rIdx) => `
+            <div class="set-row ${r.done ? "done" : ""}">
+              <div class="set-num">جـ ${rIdx + 1}</div>
+              <div class="input-wrap">
+                <input class="set-input" type="number" inputmode="decimal" placeholder="${ex.isPlank ? 'وزن' : '0'}"
+                  value="${r.weight}" onchange="updateSet('${ex.id}', ${rIdx}, 'weight', this.value)" />
+                <span class="input-unit">كجم</span>
+              </div>
+              <div class="input-wrap">
+                <input class="set-input" type="text" value="${r.reps}"
+                  onchange="updateSet('${ex.id}', ${rIdx}, 'reps', this.value)" />
+                <span class="input-unit">${ex.isPlank ? 'زمن' : 'عدّة'}</span>
+              </div>
+              <button class="check-btn ${r.done ? "done" : ""}" onclick="toggleSet('${ex.id}', ${rIdx}, ${ex.rest})" aria-label="إنجاز الجولة">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              </button>
+            </div>
+          `).join("");
+
+          card.innerHTML = `
+            <div class="ex-header">
+              <div>
+                <span class="badge badge-red">${ex.muscle}</span>
+                <h3 class="ex-title-ar">${idx + 1}. ${ex.nameAr}</h3>
+                <div class="ex-title-en">${ex.nameEn}</div>
+              </div>
+              <button class="btn-anatomy" onclick="openSim('${day.id}', ${idx})">▶ محاكاة تشريحية</button>
+            </div>
+            <div class="ex-meta">
+              <span class="badge badge-gray">${ex.sets} مجموعات × ${ex.reps}</span>
+              ${bestW ? `<span class="badge badge-amber">🏆 أفضل وزن سابق: ${bestW} كجم</span>` : `<span class="badge badge-gray">سجل وزنك للتدرج</span>`}
+            </div>
+            ${plankHtml}
+            <div class="sets-header"><div>المجموعة</div><div>الوزن</div><div>التكرار</div><div>تم</div></div>
+            ${rowsHtml}
+          `;
+          body.appendChild(card);
+        });
+
+        // Cardio Card
+        const cDone = !!state.cardioDone[day.id];
+        const cCard = document.createElement("div");
+        cCard.className = "card card-accent";
+        cCard.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:9px;">
+            <div>
+              <span class="badge badge-red">بعد الحديد مباشرة</span>
+              <h3 class="card-title" style="margin-top:4px;">🏃‍♂️ الكارديو — جهاز المشي (Treadmill)</h3>
+            </div>
+            <button class="check-btn ${cDone ? "done" : ""}" onclick="toggleCardio('${day.id}')" aria-label="إتمام الكارديو">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            </button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">
+            <span class="badge badge-gray">⚡ السرعة: 4–5.5 كم/س</span>
+            <span class="badge badge-gray">📐 الميل: 0–3%</span>
+            <span class="badge badge-gray">⏱️ 15–20 دقيقة</span>
+          </div>
+          <div class="timer-hero" style="margin-bottom:8px;padding:13px;">
+            <div id="act-clock" class="big-digits" style="font-size:2.1rem;margin:2px 0 8px;">15:00</div>
+            <div style="display:flex;justify-content:center;gap:6px;margin-bottom:9px;">
+              <button class="btn-soft" style="padding:5px 10px;font-size:0.72rem;" onclick="setActTimer(10)">10 د (أسبوع 1)</button>
+              <button class="btn-soft" style="padding:5px 10px;font-size:0.72rem;" onclick="setActTimer(15)">15 دقيقة</button>
+              <button class="btn-soft" style="padding:5px 10px;font-size:0.72rem;" onclick="setActTimer(20)">20 دقيقة</button>
+            </div>
+            <div style="display:flex;justify-content:center;gap:8px;">
+              <button id="act-btn" class="btn-primary" style="padding:8px 16px;font-size:0.78rem;" onclick="toggleActTimer()">▶ ابدأ الكارديو</button>
+              <button class="btn-soft" style="padding:8px 12px;font-size:0.78rem;" onclick="resetActTimer()">إعادة</button>
+            </div>
+          </div>
+          <p style="font-size:0.72rem;color:var(--ink-500);">💡 ابدأ بـ 10 دقائق في أول أسبوع ثم ارفع المدة تدريجياً إلى 15–20 دقيقة.</p>
+        `;
+        body.appendChild(cCard);
+        initActClock(15);
+      }
+      else if (day.mode === "walk" || day.mode === "stretch") {
+        const mins = day.walkMinutes || 30;
+        const hero = document.createElement("div");
+        hero.className = "timer-hero";
+        hero.innerHTML = `
+          <span class="badge badge-red">${day.mode === "walk" ? "🚶‍♂️ مشي سريع" : "🧘‍♂️ مشي خفيف وتمدد"}</span>
+          <div id="act-clock" class="big-digits">${String(mins).padStart(2, "0")}:00</div>
+          <div style="display:flex;justify-content:center;gap:8px;">
+            <button id="act-btn" class="btn-primary" onclick="toggleActTimer()">▶ ابدأ المؤقت</button>
+            <button class="btn-outline" onclick="resetActTimer()">إعادة ضبط</button>
+          </div>
+        `;
+        body.appendChild(hero);
+        initActClock(mins);
+
+        if (day.tips) {
+          const tc = document.createElement("div");
+          tc.className = "card";
+          tc.innerHTML = `<h3 class="card-title" style="margin-bottom:6px;">💡 نصائح ليوم المشي</h3>` +
+            day.tips.map(t => `<p style="font-size:0.8rem;color:var(--ink-700);font-weight:600;margin-bottom:5px;">• ${t}</p>`).join("");
+          body.appendChild(tc);
+        }
+
+        if (day.stretches) {
+          const sc = document.createElement("div");
+          sc.className = "card";
+          sc.innerHTML = `<h3 class="card-title" style="margin-bottom:9px;">🧘‍♂️ قائمة تمارين التمدد السريعة</h3>`;
+          day.stretches.forEach(s => {
+            const done = !!state.stretchDone[s.id];
+            const r = document.createElement("div");
+            r.className = `check-row ${done ? "done" : ""}`;
+            r.onclick = () => { state.stretchDone[s.id] = !state.stretchDone[s.id]; saveState(); renderWorkoutTab(); };
+            r.innerHTML = `<div class="tick-box">✓</div><span style="font-size:0.82rem;font-weight:700;">${s.name}</span>`;
+            sc.appendChild(r);
+          });
+          body.appendChild(sc);
+        }
+      }
+      else {
+        const rc = document.createElement("div");
+        rc.className = "card";
+        rc.style.textAlign = "center";
+        rc.innerHTML = `
+          <div style="font-size:2.8rem;margin-bottom:6px;">🛌⚖️</div>
+          <h3 style="font-size:1.05rem;font-weight:900;color:var(--red-600);">يوم الراحة الكاملة والاستشفاء</h3>
+          <p style="font-size:0.82rem;color:var(--ink-700);margin:8px 0 14px;font-weight:600;">
+            العضلات تُبنى أثناء الراحة والنوم! استغل صباح الجمعة لتسجيل وزنك ومحيط بطنك لمتابعة تقدمك.
+          </p>
+          <button class="btn-outline" style="width:100%;" onclick="switchTab('progress')">📊 الانتقال لتسجيل الوزن والخصر</button>
+        `;
+        body.appendChild(rc);
+      }
+
+      updateDayPct();
+    }
+
+    function updateSet(exId, idx, field, val) {
+      if (!state.exerciseLogs[exId]?.[idx]) return;
+      state.exerciseLogs[exId][idx][field] = val;
+      if (field === "weight") {
+        const n = parseFloat(val);
+        if (!isNaN(n) && n > (state.bestWeights[exId] || 0)) state.bestWeights[exId] = n;
+      }
+      saveState();
+    }
+
+    function toggleSet(exId, idx, restSec) {
+      if (!state.exerciseLogs[exId]?.[idx]) return;
+      const was = state.exerciseLogs[exId][idx].done;
+      state.exerciseLogs[exId][idx].done = !was;
+      const n = parseFloat(state.exerciseLogs[exId][idx].weight);
+      if (!isNaN(n) && n > (state.bestWeights[exId] || 0)) state.bestWeights[exId] = n;
+      saveState();
+      renderWorkoutTab();
+      if (!was) {
+        playChime(false);
+        showToast(`عاش يا بطل! 💪 بدأت راحة ${restSec} ثانية`);
+        startRest(restSec || 90);
+      }
+    }
+
+    function toggleCardio(dayId) {
+      state.cardioDone[dayId] = !state.cardioDone[dayId];
+      saveState(); renderWorkoutTab();
+      if (state.cardioDone[dayId]) showToast("أحسنت! أنهيت الكارديو بنجاح 🏃‍♂️🔥");
+    }
+
+    function updateDayPct() {
+      const day = WEEKLY_SCHEDULE.find(d => d.id === state.selectedDayId);
+      let pct = 0;
+      if (day.mode === "gym") {
+        let tot = 1, done = state.cardioDone[day.id] ? 1 : 0;
+        day.exercises.forEach(ex => {
+          const rows = getExRows(ex);
+          tot += rows.length;
+          done += rows.filter(r => r.done).length;
+        });
+        pct = Math.round((done / tot) * 100);
+      } else if (day.mode === "stretch") {
+        const done = day.stretches.filter(s => state.stretchDone[s.id]).length;
+        pct = state.weeklyAdherence[day.id] ? 100 : Math.round((done / day.stretches.length) * 100);
+      } else {
+        pct = state.weeklyAdherence[day.id] ? 100 : 0;
+      }
+      document.getElementById("day-pct-badge").textContent = `${pct}%`;
+      document.getElementById("day-pct-fill").style.width = `${pct}%`;
+    }
+
+    // Inline Plank Timer
+    function togglePlank(exId, sec) {
+      const el = document.getElementById(`plank-clk-${exId}`);
+      if (inlineTimers[exId]?.run) {
+        clearInterval(inlineTimers[exId].iv); inlineTimers[exId].run = false; return;
+      }
+      let rem = inlineTimers[exId]?.rem ?? sec;
+      if (rem <= 0) rem = sec;
+      inlineTimers[exId] = {
+        rem, run: true,
+        iv: setInterval(() => {
+          rem--; inlineTimers[exId].rem = rem;
+          if (el) el.textContent = `00:${String(Math.max(0, rem)).padStart(2, "0")}`;
+          if (rem <= 0) {
+            clearInterval(inlineTimers[exId].iv); inlineTimers[exId].run = false;
+            playChime(true); showToast("وحش! أنهيت 30 ثانية بلانك 🔥");
+          }
+        }, 1000)
+      };
+    }
+
+    function resetPlank(exId, sec) {
+      if (inlineTimers[exId]) clearInterval(inlineTimers[exId].iv);
+      inlineTimers[exId] = { rem: sec, run: false };
+      const el = document.getElementById(`plank-clk-${exId}`);
+      if (el) el.textContent = `00:${String(sec).padStart(2, "0")}`;
+    }
+
+    // Activity / Cardio Timer
+    let actDef = 900, actRem = 900, actRun = false;
+    function initActClock(mins) {
+      if (inlineTimers._act) clearInterval(inlineTimers._act.iv);
+      actDef = mins * 60; actRem = actDef; actRun = false; updateActUI();
+    }
+    function setActTimer(mins) { initActClock(mins); showToast(`تم ضبط المؤقت على ${mins} دقيقة`); }
+    function updateActUI() {
+      const el = document.getElementById("act-clock");
+      if (!el) return;
+      el.textContent = `${String(Math.floor(actRem / 60)).padStart(2, "0")}:${String(actRem % 60).padStart(2, "0")}`;
+      const b = document.getElementById("act-btn");
+      if (b) b.textContent = actRun ? "⏸ إيقاف مؤقت" : "▶ ابدأ المؤقت";
+    }
+    function toggleActTimer() {
+      if (actRun) { clearInterval(inlineTimers._act?.iv); actRun = false; updateActUI(); return; }
+      actRun = true; updateActUI();
+      inlineTimers._act = {
+        iv: setInterval(() => {
+          actRem--;
+          if (actRem <= 0) {
+            clearInterval(inlineTimers._act.iv); actRun = false; actRem = 0;
+            playChime(true); showToast("أحسنت! أنهيت وقت الكارديو/المشي 🔥");
+          }
+          updateActUI();
+        }, 1000)
+      };
+    }
+    function resetActTimer() { clearInterval(inlineTimers._act?.iv); actRun = false; actRem = actDef; updateActUI(); }
+
+    /* =========================================================================
+       7. FINISH DAY, CELEBRATION & CONFETTI
+       ========================================================================= */
+    function finishCurrentDay() {
+      const day = WEEKLY_SCHEDULE.find(d => d.id === state.selectedDayId);
+      let sets = 0, vol = 0;
+      if (day.mode === "gym") {
+        day.exercises.forEach(ex => {
+          getExRows(ex).forEach(r => {
+            if (r.done) {
+              sets++;
+              vol += (parseFloat(r.weight) || 0) * (parseInt(r.reps) || 0);
+            }
+          });
+        });
+        if (sets === 0 && !state.cardioDone[day.id]) {
+          showToast("أنجز جولة واحدة على الأقل (✓) قبل الحفظ!");
+          return;
+        }
+        day.exercises.forEach(ex => { if (state.exerciseLogs[ex.id]) state.exerciseLogs[ex.id].forEach(r => r.done = false); });
+        state.cardioDone[day.id] = false;
+      } else { sets = 1; }
+
+      state.weeklyAdherence[day.id] = true;
+      const t = todayISO();
+      if (!state.streakDates.includes(t)) state.streakDates.push(t);
+      state.workoutHistory.unshift({
+        id: Date.now(),
+        date: new Date().toLocaleDateString("ar-EG", { weekday: "long", month: "short", day: "numeric" }),
+        week: state.currentWeek, dayTitle: day.title, sets, vol: Math.round(vol)
+      });
+
+      stopRest(); saveState(); renderHeader(); renderWorkoutTab();
+
+      document.getElementById("cel-sets").textContent = sets;
+      document.getElementById("cel-vol").textContent = Math.round(vol);
+      document.getElementById("cel-streak").textContent = computeStreak();
+      document.getElementById("cel-quote").textContent = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+      document.getElementById("cel-modal").classList.add("open");
+      playChime(true);
+      launchConfetti();
+    }
+
+    function closeCelebrate() { document.getElementById("cel-modal").classList.remove("open"); }
+
+    function launchConfetti() {
+      const c = document.getElementById("confetti-canvas"), ctx = c.getContext("2d");
+      c.width = window.innerWidth; c.height = window.innerHeight;
+      const cols = ["#DC2626", "#EF4444", "#FFFFFF", "#FCA5A5", "#111827"];
+      const ps = Array.from({ length: 85 }, () => ({
+        x: Math.random() * c.width, y: -20 - Math.random() * 140,
+        vx: (Math.random() - 0.5) * 5, vy: 3 + Math.random() * 4.5,
+        s: 6 + Math.random() * 6, r: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.2,
+        c: cols[Math.floor(Math.random() * cols.length)]
+      }));
+      let f = 0;
+      (function loop() {
+        ctx.clearRect(0, 0, c.width, c.height);
+        ps.forEach(p => {
+          p.x += p.vx; p.y += p.vy; p.r += p.vr;
+          ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
+          ctx.fillStyle = p.c; ctx.fillRect(-p.s / 2, -p.s / 2, p.s, p.s * 0.6);
+          ctx.restore();
+        });
+        if (++f < 120) requestAnimationFrame(loop); else ctx.clearRect(0, 0, c.width, c.height);
+      })();
+    }
+
+    /* =========================================================================
+       8. COLLAPSIBLE FLOATING REST TIMER
+       ========================================================================= */
+    let restIv = null, restRem = 0;
+    function toggleRestCollapse() {
+      const bar = document.getElementById("rest-bar");
+      bar.classList.toggle("collapsed");
+      document.getElementById("rest-collapse-icon").textContent = bar.classList.contains("collapsed") ? "⤡" : "⤢";
+    }
+    function startRest(sec) {
+      clearInterval(restIv); restRem = sec;
+      document.getElementById("rest-bar").classList.remove("collapsed");
+      document.getElementById("rest-collapse-icon").textContent = "⤢";
+      updateRestUI(true);
+      restIv = setInterval(() => {
+        restRem--;
+        if (restRem <= 0) { stopRest(); playChime(false); showToast("انتهت الراحة! استعد للجولة التالية 🔥"); }
+        else updateRestUI(true);
+      }, 1000);
+    }
+    function adjustRest(d) { restRem = Math.max(5, restRem + d); updateRestUI(true); }
+    function stopRest() { clearInterval(restIv); restIv = null; restRem = 0; updateRestUI(false); }
+    function updateRestUI(run) {
+      document.getElementById("rest-clock").textContent = `${String(Math.floor(restRem / 60)).padStart(2, "0")}:${String(restRem % 60).padStart(2, "0")}`;
+      document.getElementById("rest-bar").classList.toggle("running", run);
+      document.getElementById("rest-presets").style.display = run ? "none" : "flex";
+      document.getElementById("rest-running-btns").style.display = run ? "flex" : "none";
+    }
+
+    /* =========================================================================
+       9. REALISTIC ANATOMICAL HUMAN & EQUIPMENT HTML5 CANVAS ENGINE
+          Draws sculpted limbs, joints, gripping hands, athletic attire,
+          real gym machines/weights, pulsing crimson target muscles & cues.
+       ========================================================================= */
+    let simRaf = null, simPlay = true, simSpeed = 1, simPhase = 0, simLast = 0, simEx = null;
+
+    function openSim(dayId, exIdx) {
+      const day = WEEKLY_SCHEDULE.find(d => d.id === dayId);
+      simEx = day.exercises[exIdx];
+      document.getElementById("sim-muscle").textContent = simEx.muscle;
+      document.getElementById("sim-name-ar").textContent = simEx.nameAr;
+      document.getElementById("sim-name-en").textContent = simEx.nameEn;
+      document.getElementById("sim-grip").textContent = simEx.grip;
+      document.getElementById("sim-angle").textContent = simEx.angle;
+      document.getElementById("sim-breath").textContent = simEx.breath;
+      document.getElementById("sim-cues").innerHTML = simEx.cues.map(c => `<li>${c}</li>`).join("");
+      document.getElementById("sim-mistake").textContent = simEx.mistake;
+      document.getElementById("sim-yt").href = `https://www.youtube.com/results?search_query=${encodeURIComponent(simEx.nameEn + " proper form tutorial")}`;
+
+      simPlay = true; simPhase = 0; simLast = performance.now();
+      setSimSpeed(1);
+      document.getElementById("sim-play-btn").textContent = "⏸ إيقاف مؤقت";
+      document.getElementById("sim-modal").classList.add("open");
+      cancelAnimationFrame(simRaf);
+      resizeSimCanvas();
+      simRaf = requestAnimationFrame(simLoop);
+    }
+
+    function closeSim() {
+      document.getElementById("sim-modal").classList.remove("open");
+      cancelAnimationFrame(simRaf);
+    }
+
+    function toggleSimPlay() {
+      simPlay = !simPlay;
+      document.getElementById("sim-play-btn").textContent = simPlay ? "⏸ إيقاف مؤقت" : "▶ تشغيل";
+      if (simPlay) simLast = performance.now();
+    }
+
+    function setSimSpeed(s) {
+      simSpeed = s;
+      [1, 0.5, 0.25].forEach(v => {
+        const b = document.getElementById(`spd-${v}`);
+        if (b) b.classList.toggle("active", v === s);
+      });
+    }
+
+    function resizeSimCanvas() {
+      const canvas = document.getElementById("anatomy-canvas");
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = canvas.getBoundingClientRect();
+      const w = rect.width || 360;
+      const h = rect.height || 255;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+    }
+
+    function simLoop(now) {
+      if (!document.getElementById("sim-modal").classList.contains("open")) return;
+      const dt = Math.min((now - simLast) / 1000, 0.05);
+      simLast = now;
+      if (simPlay) simPhase += dt * 2.1 * simSpeed;
+      const cyc = (simPhase % (Math.PI * 2));
+      const t = (1 - Math.cos(cyc)) / 2;
+
+      // Update 3-stage live motion phase bar
+      const isHold = (t > 0.90) || (simEx.anim === "plank");
+      const isConc = !isHold && Math.sin(cyc) >= 0;
+      const isEcc = !isHold && Math.sin(cyc) < 0;
+      document.getElementById("ph-conc").classList.toggle("on", isConc);
+      document.getElementById("ph-hold").classList.toggle("on", isHold);
+      document.getElementById("ph-ecc").classList.toggle("on", isEcc);
+
+      drawAnatomicalFrame(simEx.anim, t, isConc || isHold);
+      simRaf = requestAnimationFrame(simLoop);
+    }
+
+    /* --- Anatomical Drawing Primitives (360x255 virtual coordinate space) --- */
+    const SKIN = "#E8B998";
+    const SKIN_DARK = "#D29B76";
+    const SHIRT = "#1F2937";
+    const SHIRT_HI = "#374151";
+    const SHORTS = "#111827";
+    const SHOE_BODY = "#FFFFFF";
+    const SHOE_SOLE = "#DC2626";
+    const STEEL = "#64748B";
+    const STEEL_DARK = "#334155";
+    const PAD = "#1E293B";
+
+    function drawMuscleLimb(ctx, x1, y1, x2, y2, r1, r2, fill, bulge = 0.18) {
+      const dx = x2 - x1, dy = y2 - y1;
+      const len = Math.hypot(dx, dy) || 1;
+      const ang = Math.atan2(dy, dx);
+      ctx.save();
+      ctx.translate(x1, y1);
+      ctx.rotate(ang);
+      const midR = Math.max(r1, r2) * (1 + bulge);
+      ctx.beginPath();
+      ctx.moveTo(0, -r1);
+      ctx.quadraticCurveTo(len * 0.45, -midR, len, -r2);
+      ctx.arc(len, 0, r2, -Math.PI / 2, Math.PI / 2);
+      ctx.quadraticCurveTo(len * 0.45, midR, 0, r1);
+      ctx.arc(0, 0, r1, Math.PI / 2, -Math.PI / 2);
+      ctx.closePath();
+      ctx.fillStyle = fill;
+      ctx.fill();
+      ctx.strokeStyle = "rgba(17,24,39,0.18)";
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawAthleticHead(ctx, x, y, facing = 1, r = 13.5) {
+      // Neck
+      ctx.save();
+      ctx.fillStyle = SKIN_DARK;
+      ctx.beginPath();
+      ctx.roundRect(x - 5, y + r * 0.55, 10, 10, 4);
+      ctx.fill();
+      // Head
+      ctx.fillStyle = SKIN;
+      ctx.beginPath();
+      ctx.ellipse(x, y, r * 0.92, r, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = "rgba(17,24,39,0.16)";
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+      // Athletic hair cap
+      ctx.fillStyle = "#111827";
+      ctx.beginPath();
+      ctx.arc(x - facing * 1.5, y - 2, r * 0.94, Math.PI * 0.95, Math.PI * 2.05);
+      ctx.closePath();
+      ctx.fill();
+      // Red athletic headband accent
+      ctx.strokeStyle = "#DC2626";
+      ctx.lineWidth = 2.6;
+      ctx.beginPath();
+      ctx.moveTo(x - r * 0.85, y - 4);
+      ctx.lineTo(x + r * 0.85, y - 4);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawHandGrip(ctx, x, y, grip = "closed") {
+      ctx.save();
+      ctx.fillStyle = SKIN;
+      ctx.strokeStyle = "#9A6848";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.arc(x, y, 6.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      // Fingers wrap lines to show firm grip
+      ctx.strokeStyle = "#7C4E32";
+      ctx.lineWidth = 1.1;
+      for (let i = -2.5; i <= 2.5; i += 2.5) {
+        ctx.beginPath();
+        ctx.moveTo(x - 3, y + i);
+        ctx.lineTo(x + 3, y + i);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawSneaker(ctx, x, y, dir = 1) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(dir, 1);
+      ctx.fillStyle = SHOE_BODY;
+      ctx.strokeStyle = "#111827";
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.roundRect(-7, -5, 22, 10, [4, 7, 3, 3]);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = SHOE_SOLE;
+      ctx.fillRect(-7, 3, 22, 3);
+      ctx.restore();
+    }
+
+    function drawMuscleGlow(ctx, x, y, rx, ry, rot, active) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rot);
+      const grad = ctx.createRadialGradient(0, 0, 2, 0, 0, Math.max(rx, ry));
+      grad.addColorStop(0, active ? "rgba(220, 38, 38, 0.85)" : "rgba(239, 68, 68, 0.32)");
+      grad.addColorStop(1, "rgba(220, 38, 38, 0)");
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawPlate(ctx, x, y, r = 16) {
+      ctx.save();
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = "#111827"; ctx.fill();
+      ctx.lineWidth = 3.2; ctx.strokeStyle = "#DC2626"; ctx.stroke();
+      ctx.beginPath(); ctx.arc(x, y, r * 0.35, 0, Math.PI * 2);
+      ctx.fillStyle = "#E5E7EB"; ctx.fill();
+      ctx.restore();
+    }
+
+    function drawDumbbell(ctx, x, y, rot = 0, scale = 1) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rot);
+      ctx.scale(scale, scale);
+      ctx.fillStyle = "#94A3B8";
+      ctx.fillRect(-13, -2.5, 26, 5);
+      ctx.fillStyle = "#111827";
+      ctx.beginPath(); ctx.roundRect(-16, -9, 6, 18, 2); ctx.fill();
+      ctx.beginPath(); ctx.roundRect(10, -9, 6, 18, 2); ctx.fill();
+      ctx.fillStyle = "#DC2626";
+      ctx.fillRect(-10, -7, 2.5, 14);
+      ctx.fillRect(7.5, -7, 2.5, 14);
+      ctx.restore();
+    }
+
+    function drawCueBadge(ctx, x, y, text) {
+      ctx.save();
+      ctx.font = "700 10.5px Cairo, sans-serif";
+      const tw = ctx.measureText(text).width + 14;
+      ctx.fillStyle = "rgba(255,255,255,0.92)";
+      ctx.strokeStyle = "#FECACA";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.roundRect(x - tw / 2, y - 10, tw, 20, 8);
+      ctx.fill(); ctx.stroke();
+      ctx.fillStyle = "#DC2626";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(text, x, y + 0.5);
+      ctx.restore();
+    }
+
+    function drawMotionArrow(ctx, x1, y1, x2, y2) {
+      const ang = Math.atan2(y2 - y1, x2 - x1);
+      ctx.save();
+      ctx.strokeStyle = "#DC2626";
+      ctx.fillStyle = "#DC2626";
+      ctx.lineWidth = 2.2;
+      ctx.setLineDash([4, 3]);
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.moveTo(x2, y2);
+      ctx.lineTo(x2 - 8 * Math.cos(ang - 0.5), y2 - 8 * Math.sin(ang - 0.5));
+      ctx.lineTo(x2 - 8 * Math.cos(ang + 0.5), y2 - 8 * Math.sin(ang + 0.5));
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawAnatomicalFrame(type, t, active) {
+      const canvas = document.getElementById("anatomy-canvas");
+      const ctx = canvas.getContext("2d");
+      const W = 360, H = 255;
+      ctx.save();
+      ctx.scale(canvas.width / W, canvas.height / H);
+      ctx.clearRect(0, 0, W, H);
+
+      const cx = 180, fy = 222;
+      // Gym floor & subtle grid
+      ctx.strokeStyle = "#E2E8F0"; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(16, fy); ctx.lineTo(344, fy); ctx.stroke();
+      ctx.fillStyle = "#F1F5F9";
+      ctx.fillRect(16, fy, 328, 12);
+
+      if (type === "bench_press") {
+        // Bench & Rack
+        ctx.fillStyle = STEEL_DARK;
+        ctx.fillRect(cx - 72, fy - 120, 7, 120); // upright
+        ctx.fillRect(cx - 60, fy - 46, 8, 46);
+        ctx.fillRect(cx + 36, fy - 46, 8, 46);
+        ctx.fillStyle = PAD;
+        ctx.beginPath(); ctx.roundRect(cx - 76, fy - 58, 134, 14, 5); ctx.fill();
+
+        // Body lying on bench
+        const sx = cx - 28, sy = fy - 66, hx = cx + 32, hy = fy - 64;
+        drawMuscleLimb(ctx, hx, hy, cx + 64, fy - 46, 11, 8, SHORTS);
+        drawMuscleLimb(ctx, cx + 64, fy - 46, cx + 68, fy - 8, 7.5, 5.5, SKIN);
+        drawSneaker(ctx, cx + 70, fy - 6, 1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 14, 11, SHIRT, 0.12);
+        drawAthleticHead(ctx, cx - 55, fy - 68, 1, 12.5);
+        drawMuscleGlow(ctx, sx + 10, sy - 6, 22, 13, 0, active);
+
+        // Arm & Barbell
+        const barY = fy - 86 - t * 58;
+        const ex = sx + 12 - t * 9, ey = sy + 16 - t * 38;
+        drawMuscleLimb(ctx, sx, sy, ex, ey, 8.5, 6.5, SKIN);
+        drawMuscleLimb(ctx, ex, ey, sx + 4, barY, 6.5, 5, SKIN);
+        drawHandGrip(ctx, sx + 4, barY);
+        drawPlate(ctx, sx + 4, barY, 17);
+        drawMotionArrow(ctx, sx + 32, fy - 90, sx + 32, fy - 142);
+        drawCueBadge(ctx, cx + 52, 34, "زاوية المرفق 45°");
+      }
+      else if (type === "lat_pulldown") {
+        // Pulley Machine
+        ctx.fillStyle = STEEL_DARK;
+        ctx.fillRect(cx - 102, 16, 10, fy - 16);
+        ctx.fillRect(cx - 102, 16, 138, 10);
+        // Weight stack
+        ctx.fillStyle = "#334155";
+        const stackY = 148 - t * 44;
+        ctx.fillRect(cx - 94, stackY, 24, 34);
+        ctx.fillStyle = "#DC2626";
+        ctx.fillRect(cx - 94, stackY + 12, 24, 5);
+        // Seat & Thigh pad
+        ctx.fillStyle = PAD;
+        ctx.beginPath(); ctx.roundRect(cx - 6, fy - 52, 52, 12, 5); ctx.fill();
+        ctx.beginPath(); ctx.roundRect(cx - 18, fy - 80, 22, 10, 5); ctx.fill();
+        ctx.fillStyle = STEEL;
+        ctx.fillRect(cx + 16, fy - 40, 8, 40);
+
+        // Athlete seated facing left
+        const hx = cx + 20, hy = fy - 58, sx = cx + 22 + t * 8, sy = fy - 122;
+        drawMuscleLimb(ctx, hx, hy, cx - 12, fy - 58, 11, 8, SHORTS);
+        drawMuscleLimb(ctx, cx - 12, fy - 58, cx - 16, fy - 8, 7.5, 5.5, SKIN);
+        drawSneaker(ctx, cx - 18, fy - 6, -1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 15, 11, SHIRT, 0.14);
+        drawAthleticHead(ctx, sx - 2, sy - 21, -1, 13);
+        drawMuscleGlow(ctx, sx + 4, sy + 24, 16, 24, 0.15, active);
+
+        // Cable & Bar
+        const barY = 50 + t * 62;
+        ctx.strokeStyle = "#475569"; ctx.lineWidth = 2.2;
+        ctx.beginPath(); ctx.moveTo(cx + 12, 26); ctx.lineTo(cx + 12, barY); ctx.stroke();
+        const ex = sx - 16 + t * 8, ey = sy - 16 + t * 52;
+        drawMuscleLimb(ctx, sx, sy, ex, ey, 8.5, 6.5, SKIN);
+        drawMuscleLimb(ctx, ex, ey, cx + 12, barY, 6.5, 5, SKIN);
+        ctx.strokeStyle = "#111827"; ctx.lineWidth = 5; ctx.lineCap = "round";
+        ctx.beginPath(); ctx.moveTo(cx - 14, barY); ctx.lineTo(cx + 38, barY); ctx.stroke();
+        drawHandGrip(ctx, cx + 12, barY);
+        drawMotionArrow(ctx, cx + 56, 56, cx + 56, 114);
+        drawCueBadge(ctx, cx + 76, 36, "اسحب لأعلى الصدر");
+      }
+      else if (type === "leg_press") {
+        // 45-deg Sled Machine
+        ctx.fillStyle = STEEL_DARK;
+        ctx.fillRect(cx - 102, fy - 12, 210, 10);
+        ctx.strokeStyle = STEEL; ctx.lineWidth = 7;
+        ctx.beginPath(); ctx.moveTo(cx - 20, fy - 32); ctx.lineTo(cx + 102, fy - 146); ctx.stroke();
+        // Backrest
+        ctx.save(); ctx.translate(cx - 56, fy - 58); ctx.rotate(0.55);
+        ctx.fillStyle = PAD; ctx.beginPath(); ctx.roundRect(-42, -8, 84, 14, 5); ctx.fill();
+        ctx.restore();
+
+        const hx = cx - 22, hy = fy - 48, sx = cx - 64, sy = fy - 86;
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 14, 11, SHIRT);
+        drawAthleticHead(ctx, sx - 16, sy - 16, 1, 12.5);
+        // Hands holding side handles
+        drawMuscleLimb(ctx, sx + 6, sy + 6, hx - 8, hy - 2, 7.5, 5.5, SKIN);
+        drawHandGrip(ctx, hx - 8, hy - 2);
+
+        // Moving legs & sled
+        const fx = cx + 22 + t * 44, fy2 = fy - 88 - t * 38;
+        const kx = cx - 4 + t * 24, ky = fy - 104 + t * 14;
+        drawMuscleLimb(ctx, hx, hy, kx, ky, 12, 9, SHORTS, 0.22);
+        drawMuscleGlow(ctx, (hx + kx) / 2, (hy + ky) / 2 - 4, 22, 12, -0.5, active);
+        drawMuscleLimb(ctx, kx, ky, fx, fy2, 8.5, 6, SKIN);
+        drawSneaker(ctx, fx, fy2, 1);
+
+        // Footplate & Weight plates
+        ctx.save(); ctx.translate(fx + 14, fy2 - 6); ctx.rotate(-0.68);
+        ctx.fillStyle = "#1E293B"; ctx.beginPath(); ctx.roundRect(-7, -34, 12, 68, 4); ctx.fill();
+        ctx.restore();
+        drawPlate(ctx, fx + 34, fy2 - 18, 16);
+        drawMotionArrow(ctx, cx + 10, fy - 138, cx + 56, fy - 178);
+        drawCueBadge(ctx, cx - 55, 36, "لا تقفل الركبتين");
+      }
+      else if (type === "cable_row") {
+        // Low pulley tower + bench
+        ctx.fillStyle = STEEL_DARK;
+        ctx.fillRect(cx - 115, 30, 14, fy - 30);
+        ctx.fillStyle = PAD;
+        ctx.beginPath(); ctx.roundRect(cx - 10, fy - 48, 84, 12, 5); ctx.fill();
+        ctx.fillStyle = STEEL;
+        ctx.fillRect(cx + 28, fy - 36, 8, 36);
+        // Footrest
+        ctx.fillStyle = STEEL_DARK;
+        ctx.beginPath(); ctx.roundRect(cx - 72, fy - 52, 10, 52, 3); ctx.fill();
+
+        const hx = cx + 26, hy = fy - 56, sx = cx + 26 + t * 6, sy = fy - 122;
+        drawMuscleLimb(ctx, hx, hy, cx - 18, fy - 56, 11, 8, SHORTS);
+        drawMuscleLimb(ctx, cx - 18, fy - 56, cx - 60, fy - 36, 7.5, 5.5, SKIN);
+        drawSneaker(ctx, cx - 64, fy - 38, -1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 15, 11, SHIRT, 0.14);
+        drawAthleticHead(ctx, sx, sy - 21, -1, 13);
+        drawMuscleGlow(ctx, sx + 6, sy + 26, 15, 24, 0, active);
+
+        // Cable & V-Bar
+        const hnx = cx - 44 + t * 58, hny = fy - 86;
+        ctx.strokeStyle = "#475569"; ctx.lineWidth = 2.2;
+        ctx.beginPath(); ctx.moveTo(cx - 101, hny); ctx.lineTo(hnx, hny); ctx.stroke();
+        const ex = sx - 24 + t * 44, ey = sy + 36;
+        drawMuscleLimb(ctx, sx, sy, ex, ey, 8.5, 6.5, SKIN);
+        drawMuscleLimb(ctx, ex, ey, hnx, hny, 6.5, 5, SKIN);
+        drawHandGrip(ctx, hnx, hny);
+        drawMotionArrow(ctx, cx - 40, hny - 24, cx + 10, hny - 24);
+        drawCueBadge(ctx, cx + 62, 34, "الظهر مستقيم تماماً");
+      }
+      else if (type === "shoulder_press") {
+        // Upright Bench
+        ctx.fillStyle = PAD;
+        ctx.beginPath(); ctx.roundRect(cx - 32, fy - 54, 64, 12, 5); ctx.fill();
+        ctx.beginPath(); ctx.roundRect(cx - 14, fy - 124, 28, 70, 8); ctx.fill();
+        ctx.fillStyle = STEEL; ctx.fillRect(cx - 4, fy - 42, 8, 42);
+
+        // Front View Athlete
+        const sy = fy - 118, hy = fy - 62;
+        drawMuscleLimb(ctx, cx - 14, hy, cx - 32, fy - 8, 10, 7, SHORTS);
+        drawMuscleLimb(ctx, cx + 14, hy, cx + 32, fy - 8, 10, 7, SHORTS);
+        drawSneaker(ctx, cx - 34, fy - 6, -1); drawSneaker(ctx, cx + 34, fy - 6, 1);
+        drawMuscleLimb(ctx, cx, sy, cx, hy, 22, 16, SHIRT);
+        drawAthleticHead(ctx, cx, sy - 22, 1, 13.5);
+        drawMuscleGlow(ctx, cx - 23, sy + 2, 14, 14, 0, active);
+        drawMuscleGlow(ctx, cx + 23, sy + 2, 14, 14, 0, active);
+
+        const hny = sy - 14 - t * 52, hndx = 42 - t * 14;
+        const ey = sy + 14 - t * 38, edx = 48 - t * 14;
+        drawMuscleLimb(ctx, cx - 20, sy, cx - edx, ey, 8.5, 6.5, SKIN);
+        drawMuscleLimb(ctx, cx - edx, ey, cx - hndx, hny, 6.5, 5, SKIN);
+        drawMuscleLimb(ctx, cx + 20, sy, cx + edx, ey, 8.5, 6.5, SKIN);
+        drawMuscleLimb(ctx, cx + edx, ey, cx + hndx, hny, 6.5, 5, SKIN);
+        drawDumbbell(ctx, cx - hndx, hny, 0, 0.9);
+        drawDumbbell(ctx, cx + hndx, hny, 0, 0.9);
+        drawHandGrip(ctx, cx - hndx, hny); drawHandGrip(ctx, cx + hndx, hny);
+        drawCueBadge(ctx, cx + 92, 34, "ادفع للأعلى بتوازن");
+      }
+      else if (type === "bicep_curl" || type === "hammer_curl") {
+        // Standing side-quarter athlete
+        const sx = cx - 8, sy = fy - 142, hx = cx - 8, hy = fy - 80;
+        drawMuscleLimb(ctx, hx, hy, hx - 8, fy - 8, 11, 7, SHORTS);
+        drawMuscleLimb(ctx, hx + 6, hy, hx + 14, fy - 8, 11, 7, SHORTS);
+        drawSneaker(ctx, hx - 8, fy - 6, 1); drawSneaker(ctx, hx + 14, fy - 6, 1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 15, 12, SHIRT);
+        drawAthleticHead(ctx, sx, sy - 22, 1, 13.5);
+
+        const ex = sx + 5, ey = sy + 42;
+        const ang = 1.48 - t * 2.35;
+        const hnx = ex + Math.cos(ang) * 44, hny = ey + Math.sin(ang) * 44;
+        drawMuscleLimb(ctx, sx, sy, ex, ey, 9.5, 7, SKIN, 0.28);
+        drawMuscleGlow(ctx, sx + 10, sy + 20, 12, 19, 0.1, active);
+        drawMuscleLimb(ctx, ex, ey, hnx, hny, 7, 5.5, SKIN);
+        // Distinct Dumbbell orientation for Supinated Bicep vs Vertical Hammer
+        drawDumbbell(ctx, hnx, hny, type === "hammer_curl" ? Math.PI / 2 : 0, 0.95);
+        drawHandGrip(ctx, hnx, hny);
+        drawCueBadge(ctx, cx + 76, 36, type === "hammer_curl" ? "قبضة محايدة (الإبهام للأعلى)" : "ثبّت الكوعين بجانب جسمك");
+      }
+      else if (type === "plank") {
+        // Gym Mat
+        ctx.fillStyle = "#E2E8F0"; ctx.beginPath(); ctx.roundRect(cx - 120, fy - 8, 240, 8, 4); ctx.fill();
+        const br = Math.sin(simPhase) * 2;
+        const sx = cx - 54, sy = fy - 52 + br, hx = cx + 18, hy = fy - 54 + br, ax = cx + 96, ay = fy - 14;
+        drawMuscleLimb(ctx, hx, hy, ax, ay, 11, 6.5, SHORTS);
+        drawSneaker(ctx, ax, ay, -1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 14, 11, SHIRT);
+        drawAthleticHead(ctx, sx - 25, sy - 4, -1, 12.5);
+        // Forearm planted
+        drawMuscleLimb(ctx, sx, sy, sx, fy - 12, 8.5, 6.5, SKIN);
+        drawMuscleLimb(ctx, sx, fy - 12, sx - 28, fy - 12, 6.5, 5, SKIN);
+        drawHandGrip(ctx, sx - 28, fy - 12);
+        drawMuscleGlow(ctx, (sx + hx) / 2, sy + 8, 34, 13, 0, true);
+
+        // Straight alignment dashed line
+        ctx.save();
+        ctx.strokeStyle = "#DC2626"; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);
+        ctx.beginPath(); ctx.moveTo(sx - 34, sy - 20); ctx.lineTo(ax + 10, ay - 22); ctx.stroke();
+        ctx.restore();
+        drawCueBadge(ctx, cx, 42, "خط مستقيم من الرأس للكعبين • شد البطن");
+      }
+      else if (type === "goblet_squat" || type === "squat") {
+        const ax = cx + 12, ay = fy - 8;
+        const kx = cx + 16 + t * 28, ky = fy - 62 + t * 12;
+        const hx = cx + 6 - t * 44, hy = fy - 112 + t * 56;
+        const sx = hx + 4 + t * 18, sy = hy - 62 + t * 8;
+        drawMuscleLimb(ctx, hx, hy, kx, ky, 13, 9.5, SHORTS, 0.25);
+        drawMuscleGlow(ctx, (hx + kx) / 2, (hy + ky) / 2, 22, 13, 0.4, active);
+        drawMuscleLimb(ctx, kx, ky, ax, ay, 8.5, 6, SKIN);
+        drawSneaker(ctx, ax, ay, 1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 15, 12, SHIRT);
+        drawAthleticHead(ctx, sx + 5, sy - 21, 1, 13);
+
+        if (type === "goblet_squat") {
+          drawMuscleLimb(ctx, sx, sy, sx + 18, sy + 20, 8, 6, SKIN);
+          drawDumbbell(ctx, sx + 22, sy + 20, Math.PI / 2, 0.95);
+          drawHandGrip(ctx, sx + 20, sy + 18);
+          drawCueBadge(ctx, cx + 68, 36, "الصدر مرفوع • الدامبل أمام الصدر");
+        } else {
+          drawMuscleLimb(ctx, sx, sy, sx - 12, sy + 14, 8, 6, SKIN);
+          drawMuscleLimb(ctx, sx - 12, sy + 14, sx - 2, sy - 4, 6, 5, SKIN);
+          drawPlate(ctx, sx - 2, sy - 4, 18);
+          drawCueBadge(ctx, cx + 68, 36, "البار على التربيز • النزول بتوازن");
+        }
+        drawMotionArrow(ctx, cx - 72, 85, cx - 72, 145);
+      }
+      else if (type === "incline_press") {
+        // 35-deg Incline Bench
+        ctx.save(); ctx.translate(cx - 10, fy - 42); ctx.rotate(-0.58);
+        ctx.fillStyle = PAD; ctx.beginPath(); ctx.roundRect(-64, -8, 94, 13, 5); ctx.fill();
+        ctx.restore();
+        ctx.fillStyle = PAD; ctx.beginPath(); ctx.roundRect(cx - 12, fy - 46, 52, 12, 5); ctx.fill();
+        ctx.fillStyle = STEEL; ctx.fillRect(cx - 42, fy - 44, 8, 44); ctx.fillRect(cx + 22, fy - 34, 8, 34);
+
+        const sx = cx - 36, sy = fy - 94, hx = cx + 8, hy = fy - 54;
+        drawMuscleLimb(ctx, hx, hy, cx + 50, fy - 48, 11, 8, SHORTS);
+        drawMuscleLimb(ctx, cx + 50, fy - 48, cx + 56, fy - 8, 7.5, 5.5, SKIN);
+        drawSneaker(ctx, cx + 58, fy - 6, 1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 14, 11, SHIRT);
+        drawAthleticHead(ctx, sx - 16, sy - 18, 1, 12.5);
+        drawMuscleGlow(ctx, sx + 14, sy + 2, 20, 12, -0.5, active);
+
+        const hnx = sx + 14, hny = sy - 12 - t * 52;
+        const ex = sx + 14 - t * 7, ey = sy + 20 - t * 36;
+        drawMuscleLimb(ctx, sx, sy, ex, ey, 8.5, 6.5, SKIN);
+        drawMuscleLimb(ctx, ex, ey, hnx, hny, 6.5, 5, SKIN);
+        drawDumbbell(ctx, hnx, hny, 0, 0.95);
+        drawHandGrip(ctx, hnx, hny);
+        drawCueBadge(ctx, cx + 64, 34, "زاوية المقعد 30–35° للصدر العلوي");
+      }
+      else if (type === "deadlift") {
+        const ax = cx + 10, ay = fy - 8, kx = cx + 14 + t * 5, ky = fy - 62;
+        const hx = cx + 8 - t * 34, hy = fy - 114 + t * 14;
+        const sx = hx + 4 + t * 62, sy = hy - 62 + t * 48;
+        drawMuscleLimb(ctx, hx, hy, kx, ky, 12.5, 9, SHORTS);
+        drawMuscleGlow(ctx, (hx + kx) / 2 - 8, (hy + ky) / 2, 12, 24, 0.15, active);
+        drawMuscleLimb(ctx, kx, ky, ax, ay, 8.5, 6, SKIN);
+        drawSneaker(ctx, ax, ay, 1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 14.5, 11.5, SHIRT);
+        drawAthleticHead(ctx, sx + 14, sy - 16 + t * 10, 1, 12.5);
+        // Arms straight down holding bar close to legs
+        const barX = sx + 2, barY = sy + 64;
+        drawMuscleLimb(ctx, sx, sy, barX, barY, 8, 5.5, SKIN);
+        drawHandGrip(ctx, barX, barY);
+        drawPlate(ctx, barX, barY, 16);
+        drawCueBadge(ctx, cx - 56, 36, "ادفع الورك للخلف • الظهر مشدود");
+      }
+      else if (type === "lateral_raise") {
+        const sy = fy - 138, hy = fy - 78;
+        drawMuscleLimb(ctx, cx - 10, hy, cx - 16, fy - 8, 10.5, 7, SHORTS);
+        drawMuscleLimb(ctx, cx + 10, hy, cx + 16, fy - 8, 10.5, 7, SHORTS);
+        drawSneaker(ctx, cx - 18, fy - 6, -1); drawSneaker(ctx, cx + 18, fy - 6, 1);
+        drawMuscleLimb(ctx, cx, sy, cx, hy, 22, 15, SHIRT);
+        drawAthleticHead(ctx, cx, sy - 22, 1, 13.5);
+        drawMuscleGlow(ctx, cx - 23, sy + 2, 14, 14, 0, active);
+        drawMuscleGlow(ctx, cx + 23, sy + 2, 14, 14, 0, active);
+
+        const ang = 1.4 - t * 1.38, len = 64;
+        const lx = cx - 20 - Math.cos(ang) * len, ly = sy + Math.sin(ang) * len;
+        const rx = cx + 20 + Math.cos(ang) * len, ry = sy + Math.sin(ang) * len;
+        drawMuscleLimb(ctx, cx - 20, sy, lx, ly, 8, 5.5, SKIN);
+        drawMuscleLimb(ctx, cx + 20, sy, rx, ry, 8, 5.5, SKIN);
+        drawDumbbell(ctx, lx, ly, 0.2, 0.85); drawDumbbell(ctx, rx, ry, -0.2, 0.85);
+        drawHandGrip(ctx, lx, ly); drawHandGrip(ctx, rx, ry);
+        drawCueBadge(ctx, cx, 32, "ارفع لمستوى الكتف مع ثني خفيف للكوع");
+      }
+      else if (type === "tricep_pushdown") {
+        ctx.fillStyle = STEEL_DARK; ctx.fillRect(cx + 76, 18, 12, fy - 18);
+        const sx = cx - 16, sy = fy - 140, hx = cx - 16, hy = fy - 78;
+        drawMuscleLimb(ctx, hx, hy, hx - 8, fy - 8, 11, 7, SHORTS);
+        drawMuscleLimb(ctx, hx + 8, hy, hx + 16, fy - 8, 11, 7, SHORTS);
+        drawSneaker(ctx, hx - 8, fy - 6, 1); drawSneaker(ctx, hx + 16, fy - 6, 1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 15, 12, SHIRT);
+        drawAthleticHead(ctx, sx, sy - 22, 1, 13.5);
+
+        const ex = sx + 8, ey = sy + 40;
+        const ang = -0.78 + t * 2.15;
+        const hnx = ex + Math.cos(ang) * 44, hny = ey + Math.sin(ang) * 44;
+        ctx.strokeStyle = "#475569"; ctx.lineWidth = 2.2;
+        ctx.beginPath(); ctx.moveTo(cx + 76, 26); ctx.lineTo(hnx, hny); ctx.stroke();
+        drawMuscleLimb(ctx, sx, sy, ex, ey, 9, 7, SKIN);
+        drawMuscleGlow(ctx, sx - 6, sy + 20, 11, 19, 0, active);
+        drawMuscleLimb(ctx, ex, ey, hnx, hny, 7, 5.5, SKIN);
+        drawHandGrip(ctx, hnx, hny);
+        drawMotionArrow(ctx, hnx + 22, ey - 10, hnx + 22, ey + 42);
+        drawCueBadge(ctx, cx - 52, 34, "ثبّت الكوعين بجانب الضلوع");
+      }
+      else if (type === "crunch") {
+        ctx.fillStyle = "#E2E8F0"; ctx.beginPath(); ctx.roundRect(cx - 115, fy - 8, 230, 8, 4); ctx.fill();
+        const hx = cx + 6, hy = fy - 18;
+        const sx = hx - 60 + t * 22, sy = hy - 4 - t * 38;
+        drawMuscleLimb(ctx, hx, hy, cx + 44, fy - 60, 11, 8, SHORTS);
+        drawMuscleLimb(ctx, cx + 44, fy - 60, cx + 76, fy - 12, 8, 5.5, SKIN);
+        drawSneaker(ctx, cx + 78, fy - 10, 1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 14, 11, SHIRT);
+        drawAthleticHead(ctx, sx - 18 + t * 8, sy - 10 - t * 6, 1, 12.5);
+        // Hands lightly near head
+        drawMuscleLimb(ctx, sx, sy, sx - 8, sy - 16, 7, 5, SKIN);
+        drawMuscleGlow(ctx, (sx + hx) / 2 + 8, (sy + hy) / 2 - 4, 24, 13, 0, active);
+        drawCueBadge(ctx, cx, 42, "ارفع لوحي الكتف • لا تشد الرقبة");
+      }
+      else if (type === "chest_machine") {
+        ctx.fillStyle = STEEL_DARK;
+        ctx.fillRect(cx - 72, 34, 12, fy - 34);
+        ctx.fillStyle = PAD;
+        ctx.beginPath(); ctx.roundRect(cx - 56, fy - 134, 14, 72, 5); ctx.fill();
+        ctx.beginPath(); ctx.roundRect(cx - 52, fy - 58, 56, 12, 5); ctx.fill();
+
+        const sx = cx - 32, sy = fy - 120, hx = cx - 32, hy = fy - 64;
+        drawMuscleLimb(ctx, hx, hy, cx + 10, fy - 60, 11, 8, SHORTS);
+        drawMuscleLimb(ctx, cx + 10, fy - 60, cx + 14, fy - 8, 7.5, 5.5, SKIN);
+        drawSneaker(ctx, cx + 16, fy - 6, 1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 15, 11, SHIRT);
+        drawAthleticHead(ctx, sx + 2, sy - 21, 1, 13);
+        drawMuscleGlow(ctx, sx + 14, sy + 10, 18, 16, 0, active);
+
+        const hnx = cx + 8 + t * 52, hny = sy + 6;
+        const ex = sx + 8 + t * 34, ey = sy + 20 - t * 10;
+        // Machine lever arm
+        ctx.strokeStyle = "#DC2626"; ctx.lineWidth = 6;
+        ctx.beginPath(); ctx.moveTo(cx - 66, 48); ctx.lineTo(hnx, hny); ctx.stroke();
+        drawMuscleLimb(ctx, sx, sy, ex, ey, 8.5, 6.5, SKIN);
+        drawMuscleLimb(ctx, ex, ey, hnx, hny, 6.5, 5, SKIN);
+        drawHandGrip(ctx, hnx, hny);
+        drawMotionArrow(ctx, cx + 14, sy - 22, cx + 62, sy - 22);
+        drawCueBadge(ctx, cx + 62, 34, "ثبّت ظهرك وادفع للأمام");
+      }
+      else if (type === "leg_curl") {
+        ctx.fillStyle = PAD;
+        ctx.beginPath(); ctx.roundRect(cx - 56, fy - 130, 14, 68, 5); ctx.fill();
+        ctx.beginPath(); ctx.roundRect(cx - 52, fy - 64, 64, 12, 5); ctx.fill();
+        ctx.fillStyle = STEEL; ctx.fillRect(cx - 24, fy - 52, 8, 52);
+
+        const hx = cx - 28, hy = fy - 70, sx = cx - 32, sy = fy - 126, kx = cx + 16, ky = fy - 70;
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 14, 11, SHIRT);
+        drawAthleticHead(ctx, sx + 2, sy - 21, 1, 13);
+        drawMuscleLimb(ctx, hx, hy, kx, ky, 12, 9, SHORTS);
+        drawMuscleGlow(ctx, (hx + kx) / 2, hy + 10, 22, 11, 0, active);
+
+        const ang = 0.25 + t * 1.5;
+        const fx = kx + Math.cos(ang) * 56, fy2 = ky + Math.sin(ang) * 56;
+        drawMuscleLimb(ctx, kx, ky, fx, fy2, 8.5, 6, SKIN);
+        drawSneaker(ctx, fx, fy2, 1);
+        // Roller pad
+        ctx.fillStyle = "#DC2626"; ctx.beginPath(); ctx.arc(fx - 4, fy2 + 4, 9, 0, Math.PI * 2); ctx.fill();
+        drawCueBadge(ctx, cx + 62, 36, "اسحب للأسفل بتركيز وتحكم");
+      }
+      else if (type === "face_pull") {
+        ctx.fillStyle = STEEL_DARK; ctx.fillRect(cx - 106, 20, 12, fy - 20);
+        const sx = cx + 34, sy = fy - 136, hx = cx + 34, hy = fy - 74;
+        drawMuscleLimb(ctx, hx, hy, hx - 12, fy - 8, 11, 7, SHORTS);
+        drawMuscleLimb(ctx, hx + 10, hy, hx + 20, fy - 8, 11, 7, SHORTS);
+        drawSneaker(ctx, hx - 14, fy - 6, -1); drawSneaker(ctx, hx + 18, fy - 6, -1);
+        drawMuscleLimb(ctx, sx, sy, hx, hy, 15, 11, SHIRT);
+        drawAthleticHead(ctx, sx, sy - 21, -1, 13);
+        drawMuscleGlow(ctx, sx + 6, sy + 2, 16, 16, 0, active);
+
+        const hnx = cx - 42 + t * 56, hny = sy - 14;
+        const ex = sx - 26 + t * 44, ey = sy - 16;
+        ctx.strokeStyle = "#475569"; ctx.lineWidth = 2.2;
+        ctx.beginPath(); ctx.moveTo(cx - 94, hny); ctx.lineTo(hnx, hny); ctx.stroke();
+        drawMuscleLimb(ctx, sx, sy, ex, ey, 8.5, 6.5, SKIN);
+        drawMuscleLimb(ctx, ex, ey, hnx, hny, 6.5, 5, SKIN);
+        drawHandGrip(ctx, hnx, hny);
+        drawMotionArrow(ctx, cx - 36, hny - 22, cx + 16, hny - 22);
+        drawCueBadge(ctx, cx - 10, 34, "اسحب للجبهة وافتح المرفقين");
+      }
+
+      ctx.restore();
+    }
+
+    /* =========================================================================
+       10. TAB 2: NUTRITION & WATER
+       ========================================================================= */
+    function renderNutritionTab() {
+      const box = document.getElementById("meals-container");
+      box.innerHTML = "";
+      let done = 0;
+      MEALS.forEach(m => {
+        const isD = !!state.mealsDone[m.id];
+        if (isD) done++;
+        const el = document.createElement("div");
+        el.className = `check-row ${isD ? "done" : ""}`;
+        el.onclick = () => {
+          state.mealsDone[m.id] = !state.mealsDone[m.id];
+          saveState(); renderNutritionTab();
+          if (state.mealsDone[m.id]) showToast("بالعافية! وجبة محسوبة نحو هدفك 🍽️");
+        };
+        el.innerHTML = `
+          <div class="tick-box">✓</div>
+          <div>
+            <div style="font-size:0.78rem;font-weight:900;color:var(--red-600);">${m.time}</div>
+            <div style="font-size:0.83rem;font-weight:700;color:var(--ink-900);margin-top:2px;">${m.items}</div>
+          </div>
+        `;
+        box.appendChild(el);
+      });
+      document.getElementById("meals-sub").textContent = `أنجزت ${done} من ${MEALS.length} وجبات اليوم`;
+      document.getElementById("meals-bar").style.width = `${Math.round((done / MEALS.length) * 100)}%`;
+
+      // Water
+      const L = (state.waterCups * 0.25).toFixed(2);
+      document.getElementById("water-sub").textContent = `${L} / 3.00 لتر (${state.waterCups} من 12 كوب)`;
+      document.getElementById("water-bar").style.width = `${Math.min(100, Math.round((state.waterCups / 12) * 100))}%`;
+      const wg = document.getElementById("water-grid");
+      wg.innerHTML = "";
+      for (let i = 1; i <= 12; i++) {
+        const b = document.createElement("button");
+        b.className = `cup-tile ${i <= state.waterCups ? "filled" : ""}`;
+        b.textContent = "💧";
+        b.onclick = () => { state.waterCups = (state.waterCups === i) ? i - 1 : i; saveState(); renderNutritionTab(); };
+        wg.appendChild(b);
+      }
+    }
+    function changeWater(d) { state.waterCups = Math.max(0, Math.min(12, state.waterCups + d)); saveState(); renderNutritionTab(); }
+    function resetMeals() { state.mealsDone = {}; saveState(); renderNutritionTab(); showToast("تم تصفير وجبات اليوم"); }
+
+    /* =========================================================================
+       11. TAB 3: PROGRESS, ADHERENCE, SVG CHART & ROADMAP
+       ========================================================================= */
+    function renderProgressTab() {
+      document.getElementById("prog-week-num").textContent = state.currentWeek;
+      const done = Object.values(state.weeklyAdherence).filter(Boolean).length;
+      document.getElementById("prog-score").textContent = `${done}/7`;
+      document.getElementById("prog-bar").style.width = `${Math.round((done / 7) * 100)}%`;
+
+      const adh = document.getElementById("adherence-container");
+      adh.innerHTML = "";
+      WEEKLY_SCHEDULE.forEach(d => {
+        const isD = !!state.weeklyAdherence[d.id];
+        const row = document.createElement("div");
+        row.className = `check-row ${isD ? "done" : ""}`;
+        row.style.alignItems = "center";
+        row.onclick = () => {
+          state.weeklyAdherence[d.id] = !state.weeklyAdherence[d.id];
+          saveState(); renderHeader(); renderProgressTab();
+        };
+        row.innerHTML = `<div class="tick-box">✓</div><div><strong>${d.short}</strong> <span style="font-size:0.78rem;color:var(--ink-500);margin-right:5px;">${d.adherenceLabel}</span></div>`;
+        adh.appendChild(row);
+      });
+
+      renderWeightChart();
+      document.getElementById("meas-list").innerHTML = state.measurements.slice().reverse().slice(0, 6).map(m => `
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 11px;background:var(--bg-canvas);border-radius:12px;margin-bottom:6px;font-size:0.78rem;">
+          <div>
+            <strong style="color:var(--red-600);">${m.weight} كجم</strong>${m.waist ? ` • خصر: <strong>${m.waist} سم</strong>` : ""}
+            <div style="font-size:0.68rem;color:var(--ink-500);">${m.date}${m.note ? ` — ${m.note}` : ""}</div>
+          </div>
+          <span class="badge badge-gray">مسجّل</span>
+        </div>
+      `).join("");
+
+      ["photos", "fitness"].forEach(k => {
+        const el = document.getElementById(`bw-${k}`);
+        el.classList.toggle("done", !!state.biweekly[k]);
+        document.getElementById(`bw-${k}-dt`).textContent = state.biweekly[k] ? `آخر تسجيل: ${state.biweekly[k]}` : "لم يتم التسجيل بعد";
+      });
+
+      document.getElementById("roadmap-list").innerHTML = PHASES.map((p, i) => {
+        const cur = state.currentWeek >= p.range[0] && state.currentWeek <= p.range[1];
+        const past = state.currentWeek > p.range[1];
+        return `
+          <div class="roadmap-step ${cur ? "active" : ""} ${past ? "done" : ""}">
+            <div class="rm-node">${past ? "✓" : i + 1}</div>
+            <div class="rm-card">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <strong style="font-size:0.78rem;color:${cur ? "var(--red-600)" : "var(--ink-500)"};">${p.label}</strong>
+                ${cur ? `<span class="badge badge-red">أنت هنا</span>` : ""}
+              </div>
+              <div style="font-size:0.84rem;font-weight:800;margin-top:2px;">${p.title}</div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      document.getElementById("hist-count").textContent = `${state.workoutHistory.length} حصة`;
+      const hl = document.getElementById("hist-list");
+      hl.innerHTML = state.workoutHistory.length
+        ? state.workoutHistory.slice(0, 12).map(h => `
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--bg-canvas);border:1px solid var(--line-light);border-radius:13px;margin-bottom:7px;">
+            <div>
+              <div style="font-size:0.7rem;color:var(--red-600);font-weight:800;">الأسبوع ${h.week} • ${h.date}</div>
+              <div style="font-size:0.83rem;font-weight:800;">${h.dayTitle}</div>
+              <div style="font-size:0.72rem;color:var(--ink-500);">الجولات: ${h.sets}${h.vol > 0 ? ` • الحجم: ${h.vol} كجم` : ""}</div>
+            </div>
+            <span class="badge badge-green">✓</span>
+          </div>
+        `).join("")
+        : `<p style="text-align:center;font-size:0.78rem;color:var(--ink-500);padding:12px 0;">لا توجد حصص مسجلة بعد. انطلق اليوم!</p>`;
+    }
+
+    function saveMeasurement(e) {
+      e.preventDefault();
+      const w = parseFloat(document.getElementById("inp-weight").value);
+      const waist = document.getElementById("inp-waist").value.trim();
+      const note = document.getElementById("inp-note").value.trim();
+      if (isNaN(w)) return;
+      state.measurements.push({ id: Date.now(), date: todayISO(), weight: w, waist, note });
+      saveState(); e.target.reset(); renderProgressTab();
+      showToast("تم تسجيل قياسك الجديد بنجاح ⚖️");
+    }
+
+    function renderWeightChart() {
+      const svg = document.getElementById("weight-svg");
+      const data = state.measurements;
+      const badge = document.getElementById("delta-badge");
+      if (data.length >= 2) {
+        const diff = (data[data.length - 1].weight - data[0].weight).toFixed(1);
+        badge.textContent = diff <= 0 ? `التغير: ${diff} كجم 📉` : `التغير: +${diff} كجم`;
+        badge.className = diff <= 0 ? "badge badge-green" : "badge badge-amber";
+      } else {
+        badge.textContent = `البداية: ${data[0]?.weight || 75.0} كجم`;
+      }
+
+      const W = 360, H = 155, pL = 34, pR = 16, pT = 18, pB = 26;
+      const ws = data.map(d => d.weight);
+      const minW = Math.floor(Math.min(...ws) - 1), maxW = Math.ceil(Math.max(...ws) + 1);
+      const span = Math.max(1, maxW - minW);
+
+      const pts = data.map((d, i) => ({
+        x: data.length === 1 ? (pL + W - pR) / 2 : pL + (i / (data.length - 1)) * (W - pL - pR),
+        y: H - pB - ((d.weight - minW) / span) * (H - pT - pB),
+        date: d.date.slice(5)
+      }));
+
+      let out = "";
+      for (let i = 0; i <= 3; i++) {
+        const val = (minW + (span * i) / 3).toFixed(1);
+        const y = H - pB - (i / 3) * (H - pT - pB);
+        out += `<line x1="${pL}" y1="${y}" x2="${W - pR}" y2="${y}" stroke="#E5E7EB" stroke-dasharray="3,3"/>`;
+        out += `<text x="${pL - 5}" y="${y + 4}" text-anchor="end" font-size="9" fill="#6B7280" font-weight="700">${val}</text>`;
+      }
+      if (pts.length > 1) {
+        const lp = pts.map((p, i) => `${i === 0 ? "M" : "L"}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
+        out += `<path d="${lp} L${pts[pts.length - 1].x.toFixed(1)},${H - pB} L${pts[0].x.toFixed(1)},${H - pB} Z" fill="rgba(220,38,38,0.1)"/>`;
+        out += `<path d="${lp}" fill="none" stroke="#DC2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
+      }
+      pts.forEach((p, i) => {
+        out += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4.5" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.5"/>`;
+        if (i === 0 || i === pts.length - 1 || pts.length <= 6) {
+          out += `<text x="${p.x.toFixed(1)}" y="${H - 8}" text-anchor="middle" font-size="8.5" fill="#6B7280" font-weight="700">${p.date}</text>`;
+        }
+      });
+      svg.innerHTML = out;
+    }
+
+    function toggleBiweekly(k) { state.biweekly[k] = state.biweekly[k] ? "" : todayISO(); saveState(); renderProgressTab(); }
+    function showNewWeekConfirm(s) { document.getElementById("new-week-box").classList.toggle("show", s); }
+    function confirmNewWeek() {
+      state.archivedWeeks.push({ week: state.currentWeek, score: Object.values(state.weeklyAdherence).filter(Boolean).length, date: todayISO() });
+      state.weeklyAdherence = { sat: false, sun: false, mon: false, tue: false, wed: false, thu: false, fri: false };
+      if (state.currentWeek < 12) state.currentWeek++;
+      saveState(); showNewWeekConfirm(false); renderHeader(); renderProgressTab();
+      showToast(`ممتاز! بدأت الأسبوع ${state.currentWeek} من 12 🔥`);
+    }
+
+    /* =========================================================================
+       12. TAB 4: GUIDE, REMINDERS, .ICS & JSON BACKUP
+       ========================================================================= */
+    function renderGuideTab() {
+      document.getElementById("rem-time").value = state.reminder.time || "06:00";
+      const box = document.getElementById("rem-days");
+      box.innerHTML = "";
+      REM_DAYS.forEach(d => {
+        const sel = state.reminder.days.includes(d.idx);
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = `day-chip ${sel ? "selected" : ""}`;
+        b.textContent = d.short;
+        b.onclick = () => {
+          const i = state.reminder.days.indexOf(d.idx);
+          if (i >= 0) { if (state.reminder.days.length > 1) state.reminder.days.splice(i, 1); }
+          else state.reminder.days.push(d.idx);
+          saveReminder(); renderGuideTab();
+        };
+        box.appendChild(b);
+      });
+      updateNotifBadge();
+    }
+
+    function saveReminder() {
+      state.reminder.time = document.getElementById("rem-time").value || "06:00";
+      saveState();
+      showToast(`تم حفظ موعد التذكير للساعة ${state.reminder.time} ⏰`);
+    }
+
+    function updateNotifBadge() {
+      const b = document.getElementById("notif-status");
+      if (!("Notification" in window)) { b.textContent = "غير مدعومة"; b.className = "badge badge-gray"; return; }
+      if (Notification.permission === "granted") { b.textContent = "مفعّلة ✅"; b.className = "badge badge-green"; }
+      else if (Notification.permission === "denied") { b.textContent = "محظورة ❌"; b.className = "badge badge-red"; }
+      else { b.textContent = "غير مفعّلة"; b.className = "badge badge-amber"; }
+    }
+
+    async function enableNotifications() {
+      if (!("Notification" in window)) { showToast("استخدم تصدير التقويم (.ics) بالأسفل 📅"); return; }
+      try {
+        const res = await Notification.requestPermission();
+        updateNotifBadge();
+        showToast(res === "granted" ? "تم تفعيل الإشعارات بنجاح 🔔" : "يرجى السماح بالإشعارات من إعدادات المتصفح");
+      } catch (e) {}
+    }
+
+    function testNotification() {
+      playChime(false);
+      const msg = "وقت تمرينك الصباحي! افتح مدربي الذكي وانطلق نحو هدف الـ 12 أسبوعاً 🔥";
+      showToast(msg);
+      if ("Notification" in window && Notification.permission === "granted") {
+        try { new Notification("مدربي الذكي 💪", { body: msg }); } catch (e) {}
+      }
+    }
+
+    setInterval(() => {
+      const now = new Date();
+      if (state.reminder.lastFired === todayISO()) return;
+      if (!state.reminder.days.includes(now.getDay())) return;
+      const cur = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+      if (cur === state.reminder.time) {
+        state.reminder.lastFired = todayISO(); saveState(); testNotification();
+      }
+    }, 20000);
+
+    function nextAlarm() {
+      const [hh, mm] = (state.reminder.time || "06:00").split(":").map(Number);
+      const now = new Date();
+      for (let off = 0; off < 8; off++) {
+        const c = new Date(now); c.setDate(now.getDate() + off); c.setHours(hh, mm, 0, 0);
+        if (state.reminder.days.includes(c.getDay()) && c > now) return c;
+      }
+      const fb = new Date(now); fb.setDate(now.getDate() + 1); fb.setHours(hh, mm, 0, 0);
+      return fb;
+    }
+
+    function fmtICS(d) {
+      return `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, "0")}${String(d.getDate()).padStart(2, "0")}T${String(d.getHours()).padStart(2, "0")}${String(d.getMinutes()).padStart(2, "0")}00`;
+    }
+    function byDayStr() {
+      return REM_DAYS.filter(d => state.reminder.days.includes(d.idx)).map(d => d.ics).join(",") || "SA,SU,MO,TU,WE,TH";
+    }
+
+    function downloadICS() {
+      const st = nextAlarm(), en = new Date(st.getTime() + 75 * 60000);
+      const ics = [
+        "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SmartTrainer12W//AR//EN", "BEGIN:VEVENT",
+        `UID:st12w-${Date.now()}@local`, `DTSTAMP:${fmtICS(new Date())}Z`,
+        `DTSTART:${fmtICS(st)}`, `DTEND:${fmtICS(en)}`, `RRULE:FREQ=WEEKLY;BYDAY=${byDayStr()}`,
+        "SUMMARY:تمرينك الصباحي - مدربي الذكي 💪",
+        "DESCRIPTION:تحدي الـ 12 أسبوعاً! حان موعد تمرينك الصباحي 🔥",
+        "BEGIN:VALARM", "TRIGGER:-PT15M", "ACTION:DISPLAY", "DESCRIPTION:استعد للتمرين خلال 15 دقيقة! 💪", "END:VALARM",
+        "END:VEVENT", "END:VCALENDAR"
+      ].join("\r\n");
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a"); a.href = url; a.download = "smart-trainer-12w.ics";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast("تم تنزيل ملف التقويم (.ics) بنجاح 📅");
+    }
+
+    function openGoogleCal() {
+      const st = nextAlarm(), en = new Date(st.getTime() + 75 * 60000);
+      const p = new URLSearchParams({
+        action: "TEMPLATE", text: "تمرينك الصباحي - مدربي الذكي 💪",
+        dates: `${fmtICS(st)}/${fmtICS(en)}`, recur: `RRULE:FREQ=WEEKLY;BYDAY=${byDayStr()}`,
+        details: "تحدي الـ 12 أسبوعاً! افتح مدربي الذكي وأنجز تمرين اليوم 🔥"
+      });
+      window.open(`https://calendar.google.com/calendar/render?${p.toString()}`, "_blank", "noopener,noreferrer");
+    }
+
+    function exportBackup() {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a"); a.href = url; a.download = `smart-trainer-backup-${todayISO()}.json`;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast("تم تصدير النسخة الاحتياطية بنجاح 💾");
+    }
+
+    function importBackup(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const r = new FileReader();
+      r.onload = ev => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          if (data && data.currentWeek) {
+            state = { ...state, ...data }; saveState();
+            renderHeader(); renderWorkoutTab(); renderNutritionTab(); renderProgressTab(); renderGuideTab();
+            showToast("تمت استعادة بياناتك بنجاح ✅");
+          } else showToast("ملف النسخة الاحتياطية غير صالح");
+        } catch (err) { showToast("تعذر قراءة الملف"); }
+      };
+      r.readAsText(file);
+      e.target.value = "";
+    }
+
+    /* =========================================================================
+       13. INIT ON WINDOW LOAD
+       ========================================================================= */
+    window.onload = function () {
+      loadState();
+      const dayMap = { 6: "sat", 0: "sun", 1: "mon", 2: "tue", 3: "wed", 4: "thu", 5: "fri" };
+      const todayId = dayMap[new Date().getDay()];
+      if (todayId && !localStorage.getItem(STORAGE_KEY)) state.selectedDayId = todayId;
+      renderHeader();
+      renderWorkoutTab();
+      renderNutritionTab();
+      renderProgressTab();
+      renderGuideTab();
+    };
+
+    window.addEventListener("resize", () => {
+      if (document.getElementById("sim-modal").classList.contains("open")) resizeSimCanvas();
+    });
+  </script>
+</body>
+</html>
